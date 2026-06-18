@@ -1,0 +1,5429 @@
+{
+  "name": "bot-vet",
+  "nodes": [
+    {
+      "parameters": {
+        "updates": [
+          "message"
+        ],
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegramTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        -3312,
+        2432
+      ],
+      "id": "b834abcc-9a66-413f-b5ff-ae45e73d638c",
+      "name": "Telegram Trigger",
+      "webhookId": "67dd610a-8eb0-403b-8869-545245e48b81",
+      "credentials": {
+        "telegramApi": {
+          "id": "zsP8syB6pnbLnxXc",
+          "name": "Bot-Vet - Telegram"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.data }}",
+                    "rightValue": "menu",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "9adb6a12-0290-4f6e-8f60-6e5a08eed6e2"
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "menu"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "2381318b-fa32-4447-bf96-f1f715113e55",
+                    "leftValue": "={{ $json.data }}",
+                    "rightValue": "cancelando_cita",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "cancelando_cita"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "4e66594f-e23f-4447-92ce-4deca1e73451",
+                    "leftValue": "={{ $json.data }}",
+                    "rightValue": "confirmando_cancelacion",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "confirmando_cancelacion"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "4004cf20-16d3-4370-93e3-d41cfd73c879",
+                    "leftValue": "={{ $json.data }}",
+                    "rightValue": "agendando_mascota",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "agendando_mascota"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "da5371e7-fad2-414d-a3be-1890729f3cb8",
+                    "leftValue": "={{ $json.data }}",
+                    "rightValue": "agendando_servicio",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "agendando_servicio"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "063bc429-dc77-44f3-a356-a4e94175f424",
+                    "leftValue": "={{ $json.data }}",
+                    "rightValue": "agendando_fecha",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "agendando_fecha"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "7a73d3a8-bd35-4785-962b-ed293e7881f4",
+                    "leftValue": "={{ $json.data }}",
+                    "rightValue": "confirmando_cita",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "confirmando_cita"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "b13d61c5-ee7c-4fda-8f75-7fd91b1e27ba",
+                    "leftValue": "={{ $json.data }}",
+                    "rightValue": "consultando",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "consultando"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "8306c410-a4de-4b2f-ab51-3a749d4aacd4",
+                    "leftValue": "={{ $json.data }}",
+                    "rightValue": "pidiendo_telefono",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "pidiendo_telefono"
+            }
+          ]
+        },
+        "options": {
+          "fallbackOutput": "none"
+        }
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.4,
+      "position": [
+        -1904,
+        2304
+      ],
+      "id": "d5edc43b-716b-4116-9278-f779b3306dbb",
+      "name": "Clasifica el estado"
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT * FROM usuarios \nWHERE telegram_id = $1",
+        "options": {
+          "queryReplacement": "={{ $json.message.chat.id }}"
+        }
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        -3056,
+        2432
+      ],
+      "id": "d18ce94f-2f3e-435b-8277-054b41b9a600",
+      "name": "Busca al cliente",
+      "alwaysOutputData": true,
+      "credentials": {
+        "postgres": {
+          "id": "5hM2Lgxfq15VCEli",
+          "name": "Supabase-Vet"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "e50f579d-0cdb-4031-abd3-cde2369e04b5",
+              "leftValue": "={{ $json.values().length }}",
+              "rightValue": 0,
+              "operator": {
+                "type": "number",
+                "operation": "gt"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "looseTypeValidation": "=",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        -2816,
+        2432
+      ],
+      "id": "2fcb7973-39cd-4121-8e10-11dc944519b1",
+      "name": "Es cliente registrado"
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "INSERT INTO usuarios (telegram_id, nombre, username_telegram, estado_conversacion)\nVALUES ($1, $2, $3, 'menu')\nRETURNING *;",
+        "options": {
+          "queryReplacement": "={{ $('Telegram Trigger').item.json.message.chat.id }},{{ $('Telegram Trigger').item.json.message.chat.first_name }},{{ $('Telegram Trigger').item.json.message.chat.first_name }}"
+        }
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        -2576,
+        2560
+      ],
+      "id": "bab2e560-3521-4c08-9fe6-91c299af4cac",
+      "name": "Guarda al cliente",
+      "alwaysOutputData": true,
+      "credentials": {
+        "postgres": {
+          "id": "5hM2Lgxfq15VCEli",
+          "name": "Supabase-Vet"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT id, fecha_hora, mascota, servicio, estado_cita\nFROM citas\nWHERE telegram_id = $1\nAND estado_cita != 'cancelada'\nORDER BY fecha_hora ASC;",
+        "options": {
+          "queryReplacement": "={{ $('Telegram Trigger').item.json.message.chat.id }}"
+        }
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        -112,
+        288
+      ],
+      "id": "e21e7c1c-40c4-4bc1-aee6-d9baa2d1c00a",
+      "name": "Muestra todas las citas",
+      "alwaysOutputData": true,
+      "credentials": {
+        "postgres": {
+          "id": "5hM2Lgxfq15VCEli",
+          "name": "Supabase-Vet"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT id, fecha_hora, mascota, servicio\nFROM citas\nWHERE telegram_id = $1\nAND estado_cita = 'programada'\nORDER BY fecha_hora ASC;",
+        "options": {
+          "queryReplacement": "={{ $('Telegram Trigger').item.json.message.from.id }}"
+        }
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        16,
+        416
+      ],
+      "id": "cd578d35-7941-4e79-a464-b1b5bb1297b5",
+      "name": "Muestra citas pendientes",
+      "alwaysOutputData": true,
+      "credentials": {
+        "postgres": {
+          "id": "5hM2Lgxfq15VCEli",
+          "name": "Supabase-Vet"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.intencion }}",
+                    "rightValue": "agendar_cita",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "9adb6a12-0290-4f6e-8f60-6e5a08eed6e2"
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "agendar_cita"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "4004cf20-16d3-4370-93e3-d41cfd73c879",
+                    "leftValue": "={{ $json.intencion }}",
+                    "rightValue": "ver_citas",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "ver_citas"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "da5371e7-fad2-414d-a3be-1890729f3cb8",
+                    "leftValue": "={{ $json.intencion }}",
+                    "rightValue": "cancelar_cita",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "cancelar_cita"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "063bc429-dc77-44f3-a356-a4e94175f424",
+                    "leftValue": "={{ $json.intencion }}",
+                    "rightValue": "informacion",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "informacion"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "7a73d3a8-bd35-4785-962b-ed293e7881f4",
+                    "leftValue": "={{ $json.intencion }}",
+                    "rightValue": "hablar_humano",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "hablar_humano"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "b13d61c5-ee7c-4fda-8f75-7fd91b1e27ba",
+                    "leftValue": "={{ $json.intencion }}",
+                    "rightValue": "desconocido",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "desconocido"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "8847f6c6-6856-44a2-846e-fd570e1ab2ed",
+                    "leftValue": "={{ $json.intencion }}",
+                    "rightValue": "despedida",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "despedida"
+            }
+          ]
+        },
+        "options": {
+          "fallbackOutput": "none"
+        }
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.4,
+      "position": [
+        -592,
+        480
+      ],
+      "id": "054dce31-77e9-4473-8cb2-6681427d0076",
+      "name": "Clasifica la intención"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.intencion }}",
+                    "rightValue": "dato_valido",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "9adb6a12-0290-4f6e-8f60-6e5a08eed6e2"
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "dato_valido"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "4004cf20-16d3-4370-93e3-d41cfd73c879",
+                    "leftValue": "={{ $json.intencion }}",
+                    "rightValue": "dato_invalido",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "dato_invalido"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "8e72b266-92c9-469d-89d0-a9857bce361e",
+                    "leftValue": "={{ $json.intencion }}",
+                    "rightValue": "quiere_menu",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "quiere_menu"
+            }
+          ]
+        },
+        "options": {
+          "fallbackOutput": "none"
+        }
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.4,
+      "position": [
+        -576,
+        2096
+      ],
+      "id": "b0f1667d-8094-4a7f-acf0-4d9c84901eb8",
+      "name": "Clasifica la intención1"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $('Telegram Trigger').item.json.message.text }}",
+        "messages": {
+          "messageValues": [
+            {
+              "message": "Rol:\nEres el asistente virtual de Veterinaria Francisco Pizarro. Eres amable y breve.\n\nTarea:\nDetecta qué quiere hacer el usuario y clasifica su intención. \nEl usuario puede escribir de forma coloquial como \"quiero una cita\", \"1\", \"información\", \"hablar con alguien\", etc.\n\nIntenciones disponibles:\n- agendar_cita: quiere agendar, reservar o pedir una cita\n- ver_citas: quiere ver, consultar o revisar sus citas\n- cancelar_cita: quiere cancelar o eliminar una cita\n- informacion: quiere saber horarios, dirección, servicios o precios\n- hablar_humano: quiere hablar con una persona, humano, el equipo o un veterinario\n- desconocido: no puedes identificar la intención claramente\n- despedida: el usuario se despide, agradece, expresa satisfacción (\"perfecto\", \"genial\", \"ok\", \"gracias\", \"listo\") o indica que no necesita nada más.\n\nReglas:\n- Si el usuario escribe un número del 1 al 5, mapéalo a la intención \n  correspondiente del menú.\n- Si el usuario saluda sin pedir nada específico, usa \"desconocido\" \n  y muestra el menú.\n- Si la intención es \"despedida\", responde con una despedida cálida y breve sin mostrar el menú. Ejemplo: \"¡Hasta luego! Recuerda que estamos aquí cuando nos necesites 🐾\"\n- Responde ÚNICAMENTE con este JSON sin texto adicional:\n\n{\n  \"respuesta\": \"texto que verá el usuario\",\n  \"intencion\": \"agendar_cita | ver_citas | cancelar_cita | informacion | hablar_humano | desconocido | despedida\"\n}\n\nSi la intención es \"desconocido\", usa este menú en la respuesta:\n\"¡Hola! ¿En qué puedo ayudarte? 😊\n1️⃣ Agendar cita\n2️⃣ Ver mis citas\n3️⃣ Cancelar una cita\n4️⃣ Información de la veterinaria\n5️⃣ Hablar con alguien del equipo\""
+            }
+          ]
+        },
+        "batching": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.9,
+      "position": [
+        -1184,
+        560
+      ],
+      "id": "12f28954-0b03-4ac4-8980-c867804a0034",
+      "name": "Menu"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $('Telegram Trigger').item.json.message.text }}",
+        "messages": {
+          "messageValues": [
+            {
+              "message": "Rol:\nEres el asistente de Veterinaria Francisco Pizarro. Estás en el paso de registro de mascota para agendar una cita.\n\nTarea:\nExtrae el nombre y especie de la mascota del mensaje del usuario. \nPuede escribirlo de forma coloquial como \"Luna, es una perra\", \"tengo un gato que se llama Michi\" o simplemente \"Max\".\n\nValidaciones:\n- El nombre debe ser algo coherente, no letras aleatorias o números.\n- La especie es opcional, si no la menciona déjala como null.\n- Si el mensaje no tiene ningún nombre identificable, es dato_invalido.\n\nReglas:\n- Si el usuario escribe \"menu\", \"inicio\", \"cancelar\" o \"salir\", \n  clasifica como \"quiere_menu\".\n- Responde ÚNICAMENTE con este JSON sin texto adicional:\n\n{\n  \"respuesta\": \"texto que verá el usuario\",\n  \"intencion\": \"dato_valido | dato_invalido | quiere_menu\",\n  \"datos\": {\n    \"nombre_mascota\": \"nombre o null\",\n    \"especie\": \"perro | gato | ave | reptil | otro | null\"\n  }\n}\n\nRespuestas según intención:\n- dato_valido: \"Perfecto, ¿qué servicio necesita [nombre]? 🐾\\n- Consulta general\\n- Vacunación\\n- Desparasitación\\n- Grooming\".\n- dato_invalido: pide amablemente el nombre y especie de la mascota \n  con un ejemplo: 'Luna, es una perra' o 'Michi, es un gato'.\n- quiere_menu: \"Entendido, volvemos al menú principal.\""
+            }
+          ]
+        },
+        "batching": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.9,
+      "position": [
+        -1136,
+        2112
+      ],
+      "id": "a2331e17-1685-4877-8839-95e15338f2a5",
+      "name": "Agenda mascota"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $('Telegram Trigger').item.json.message.text }}",
+        "messages": {
+          "messageValues": [
+            {
+              "message": "Rol:\nEres el asistente de Veterinaria Francisco Pizarro. Estás en el paso de selección de servicio para agendar una cita.\n\nServicios disponibles:\n- Consulta general (también: chequeo, revisión, control)\n- Vacunación (también: vacuna, inmunización)\n- Desparasitación (también: antiparasitario, desparasitar)\n- Grooming (también: baño, peluquería, estética)\n\nTarea:\nIdentifica si el mensaje del usuario corresponde a algún servicio \nde la lista, aunque lo escriba de forma diferente o coloquial.\n\nReglas:\n- Si identificas el servicio, normaliza el nombre al de la lista oficial.\n- Si el usuario escribe \"menu\", \"inicio\", \"cancelar\" o \"salir\", \n  clasifica como \"quiere_menu\".\n- Responde ÚNICAMENTE con este JSON sin texto adicional:\n\n{\n  \"respuesta\": \"texto que verá el usuario\",\n  \"intencion\": \"servicio_valido | servicio_invalido | no_sabe | quiere_menu\",\n  \"datos\": {\n    \"servicio\": \"nombre normalizado o null\"\n  }\n}\n\nRespuestas según intención:\n- servicio_valido: \"Entendido, ¿para qué fecha y hora te queda bien? 📅 \\nPuedes escribir algo como: 'mañana a las 3pm' o 'el viernes a las 10am'\".\n- servicio_invalido: Explica amablemente que no ofrecemos ese servicio y muestra la lista completa.\n- no_sabe: Muestra la lista de servicios y ofrece ayuda para elegir.\n- quiere_menu: \"Entendido, volvemos al menú principal.\""
+            }
+          ]
+        },
+        "batching": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.9,
+      "position": [
+        -1232,
+        2608
+      ],
+      "id": "4e164587-3d10-4b87-8c24-8f863aacbc19",
+      "name": "Agenda servicio"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Contexto de la cita: {{ JSON.stringify($('Busca al cliente').item.json.contexto_temporal) }}\nMensaje del usuario: {{ $('Telegram Trigger').item.json.message.text }}",
+        "messages": {
+          "messageValues": [
+            {
+              "message": "=Eres el asistente de Veterinaria Francisco Pizarro. Estás en el paso de selección de fecha y hora para la cita.\n\nContexto actual:\n- Hoy es {{ $('Código').item.json.nombre_hoy }} {{ $('Código').item.json.fecha_hoy }} a las {{ $('Código').item.json.hora_actual }} (America/Lima, UTC-5)\n- Mañana es {{ $('Código').item.json.manana }}\n- Fechas de referencia para días de la semana:\n  · Si el usuario dice \"el lunes\"    → {{ $('Código').item.json.proximo_lunes }}\n  · Si el usuario dice \"el martes\"   → {{ $('Código').item.json.proximo_martes }}\n  · Si el usuario dice \"el miércoles\"→ {{ $('Código').item.json.proximo_miercoles }}\n  · Si el usuario dice \"el jueves\"   → {{ $('Código').item.json.proximo_jueves }}\n  · Si el usuario dice \"el viernes\"  → {{ $('Código').item.json.proximo_viernes }}\n  · Si el usuario dice \"el sábado\"   → {{ $('Código').item.json.proximo_sabado }}\n- Horario de atención: lunes a sábado, 9:00am a 7:00pm. Domingos: cerrado.\n- Zona horaria: America/Lima (UTC-5). Usa siempre el offset -05:00 en ISO 8601.\n\nTarea:\nInterpreta la fecha y hora que menciona el usuario, aunque lo escriba de forma coloquial como \"mañana a las 3\", \"el lunes por la tarde\", \"15 de mayo a las 10am\". Convierte siempre a formato ISO 8601 con offset -05:00.\n\nValidaciones obligatorias:\n- No puede ser fecha pasada (anterior a {{ $('Código').item.json.fecha_hoy }} {{ $('Código').item.json.hora_actual }})\n- Debe estar dentro del horario de atención\n- No puede ser domingo\n- Debe tener hora específica, no solo fecha\n- Ante cualquier ambigüedad de fecha, decide tú mismo. NUNCA preguntes al usuario qué fecha quiere. Solo puedes pedirle la hora si no la mencionó.\n\nReglas:\n- Si el usuario escribe \"menu\", \"inicio\", \"cancelar\" o \"salir\" → clasifica como \"quiere_menu\".\n- Para días de la semana: usa SIEMPRE las fechas de referencia de arriba. No calcules nada, solo léelas.\n- \"mañana\" siempre es exactamente {{ $('Código').item.json.manana }}.\n- Responde ÚNICAMENTE con este JSON, sin texto adicional, sin backticks, sin explicaciones:\n\n{\n  \"respuesta\": \"texto que verá el usuario\",\n  \"intencion\": \"fecha_valida | fecha_invalida | fecha_pasada | fuera_horario | sin_hora | quiere_menu\",\n  \"datos\": {\n    \"fecha_hora\": \"2026-05-10T15:00:00-05:00 o null\"\n  }\n}\n\nRespuestas según intención:\n- fecha_valida: usa esta plantilla exacta:\n  \"Perfecto, confirmemos tu cita 📋\\n 🐾 Mascota: [nombre] ([especie])\\n 🩺 Servicio: [servicio]\\n 📅 Fecha: [fecha completa en español, ej: viernes 6 de junio de 2026 a las 4:00pm]\\n¿Confirmamos? (sí / no)\"\n  La fecha NUNCA debe decir \"mañana\" ni expresiones relativas. Siempre fecha completa en español.\n- fecha_pasada: indica que esa fecha ya pasó y pide una nueva.\n- fuera_horario: indica el horario disponible (lun–sáb, 9am–7pm) y pide otra hora.\n- sin_hora: confirma la fecha entendida (con fecha completa en español) y pide que especifique la hora.\n- fecha_invalida: explica el problema específico y pide que intente de nuevo.\n- quiere_menu: responde exactamente \"Entendido, volvemos al menú principal.\""
+            }
+          ]
+        },
+        "batching": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.9,
+      "position": [
+        -1088,
+        3056
+      ],
+      "id": "ae65b4e6-263c-4e62-b727-7d19e0c36689",
+      "name": "Agenda fecha"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $('Telegram Trigger').item.json.message.text }}",
+        "messages": {
+          "messageValues": [
+            {
+              "message": "=Rol:\nEres el asistente de Veterinaria Francisco Pizarro. Acabas de mostrar el resumen de la cita al usuario y estás esperando su confirmación.\n\nContexto de fechas:\n- Hoy es: {{ DateTime.now().setZone('America/Lima').toFormat('yyyy-MM-dd') }}\n- La cita es para el: {{ DateTime.fromISO($('Busca al cliente').item.json.contexto_temporal.fecha_hora).setZone('America/Lima').toFormat('yyyy-MM-dd') }}\n\nTarea:\nDetecta si el usuario confirma, cancela o quiere modificar algún dato de la cita. El usuario puede responder de forma coloquial como \"sí\", \"dale\", \"no\", \"mejor cambia la fecha\", etc.\n\nReglas:\n- Si el usuario escribe \"menu\", \"inicio\" o \"salir\", clasifica como \"quiere_menu\".\n- \"cancelar\" en este contexto significa que no quiere la cita, no volver al menú.\n- Responde ÚNICAMENTE con este JSON sin texto adicional:\n\n{\n  \"respuesta\": \"texto que verá el usuario\",\n  \"intencion\": \"confirmar | cancelar | modificar | quiere_menu\",\n  \"datos\": {\n    \"campo_modificar\": \"mascota | servicio | fecha | null\"\n  }\n}\n\nRespuestas según intención:\n- confirmar: Si \"Hoy es\" y \"La cita es para el\" coinciden (es el mismo día), responde: \"¡Listo! Tu cita está agendada para hoy. ¡Te esperamos! 🐾 ¿Necesitas algo más?\". Si son días diferentes, responde: \"¡Listo! Tu cita está agendada. Te recordaremos el día anterior. 📅 ¿Necesitas algo más?\"\n  anterior. ¿Necesitas algo más? 😊\"\n- cancelar: \"Sin problema, cancelamos. ¿Puedo ayudarte con algo más?\n  1️⃣ Agendar cita\n  2️⃣ Ver mis citas\n  3️⃣ Cancelar una cita\n  4️⃣ Información de la veterinaria\n  5️⃣ Hablar con alguien del equipo\"\n- modificar: confirma el campo que va a cambiar y anima al usuario \n  a escribir el nuevo valor.\n- quiere_menu: \"Entendido, volvemos al menú principal.\""
+            }
+          ]
+        },
+        "batching": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.9,
+      "position": [
+        -1216,
+        3616
+      ],
+      "id": "cc70fe0e-4c5b-40c4-a5d1-e6fe669113eb",
+      "name": "Confirma cita"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $('Telegram Trigger').item.json.message.text }}",
+        "messages": {
+          "messageValues": [
+            {
+              "message": "Rol:\nEres el asistente virtual de Veterinaria Francisco Pizarro. Respondes preguntas sobre la clínica de forma amable y breve.\n\nInformación de la clínica:\n- Horario: lunes a sábado 9:00am - 7:00pm\n- Dirección: Av. Francisco Pizarro 268 - Rimac - Lima\n- Teléfono: 989898989\n- Servicios: consulta general, vacunación, desparasitación, grooming\n- Precios: Nuestros precios son:\\n Consulta general a S/30\\n Vacunación desde S/40\\n Desparasitación a S/20\\n Grooming desde S/50 \n\nTarea:\nResponde únicamente con la información disponible arriba. No inventes datos ni precios que no estén listados.\n\nReglas:\n- Si el usuario saluda, quiere ver el menú, o su mensaje no tiene relación con la clínica, clasifica como \"quiere_menu\".\n- Si el usuario escribe \"menu\", \"inicio\", \"cancelar\" o \"salir\", clasifica como \"quiere_menu\".\n- Si el usuario quiere agendar, ver o cancelar una cita, clasifica como \"quiere_menu\".\n- Si el usuario se despide, agradece o dice que ya no necesita nada, clasifica como \"despedida\".\n- Si la pregunta está fuera de la información disponible, clasifica como \"fuera_de_scope\".\n- Responde ÚNICAMENTE con este JSON sin texto adicional:\n\n{\n  \"respuesta\": \"texto que verá el usuario\",\n  \"intencion\": \"respondido | despedida | fuera_de_scope | quiere_menu\"\n}\n\nRespuestas según intención:\n- respondido: responde con la información disponible de forma breve.\n- despedida: despedida cálida y breve sin mostrar el menú. \n  Ejemplo: \"¡Con mucho gusto! Que tengas un excelente día 🐾 \n  Recuerda que estamos aquí cuando nos necesites 😊\"\n- fuera_de_scope: indica honestamente que no tienes esa información y sugiere llamar al 989898989.\n- quiere_menu: \"Entendido, volvemos al menú principal.\n  1️⃣ Agendar cita\n  2️⃣ Ver mis citas\n  3️⃣ Cancelar una cita\n  4️⃣ Información de la veterinaria\n  5️⃣ Hablar con alguien del equipo"
+            }
+          ]
+        },
+        "batching": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.9,
+      "position": [
+        -1232,
+        4064
+      ],
+      "id": "9a15cfb4-4ce9-4d6a-adf4-be48ba28486d",
+      "name": "Consultas"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.intencion }}",
+                    "rightValue": "servicio_valido",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "9adb6a12-0290-4f6e-8f60-6e5a08eed6e2"
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "servicio_valido"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "4004cf20-16d3-4370-93e3-d41cfd73c879",
+                    "leftValue": "={{ $json.intencion }}",
+                    "rightValue": "servicio_invalido",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "servicio_invalido"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "5b4785d4-fc79-48e0-8172-0034076ccbd9",
+                    "leftValue": "={{ $json.intencion }}",
+                    "rightValue": "no_sabe",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "no_sabe"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "17f8f8c6-3e47-4fea-9546-fd11b1e44602",
+                    "leftValue": "={{ $json.intencion }}",
+                    "rightValue": "quiere_menu",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "quiere_menu"
+            }
+          ]
+        },
+        "options": {
+          "fallbackOutput": "none"
+        }
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.4,
+      "position": [
+        -688,
+        2576
+      ],
+      "id": "a729867c-c082-4a7e-9bbc-312aa122d310",
+      "name": "Clasifica la intención2"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.intencion }}",
+                    "rightValue": "fecha_valida",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "9adb6a12-0290-4f6e-8f60-6e5a08eed6e2"
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "fecha_valida"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "4004cf20-16d3-4370-93e3-d41cfd73c879",
+                    "leftValue": "={{ $json.intencion }}",
+                    "rightValue": "fecha_invalida",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "fecha_invalida"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "5b4785d4-fc79-48e0-8172-0034076ccbd9",
+                    "leftValue": "={{ $json.intencion }}",
+                    "rightValue": "fecha_pasada",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "fecha_pasada"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "d49c1b1c-6d3e-4770-931c-20fdcc7dd29e",
+                    "leftValue": "={{ $json.intencion }}",
+                    "rightValue": "fuera_horario",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "fuera_horario"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "6212b670-b935-4480-b9a0-d81c94a69015",
+                    "leftValue": "={{ $json.intencion }}",
+                    "rightValue": "sin_hora",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "sin_hora"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "70526766-01b5-4bcd-993e-8dc0d21a75b6",
+                    "leftValue": "={{ $json.intencion }}",
+                    "rightValue": "quiere_menu",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "quiere_menu"
+            }
+          ]
+        },
+        "options": {
+          "fallbackOutput": "none"
+        }
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.4,
+      "position": [
+        -576,
+        3008
+      ],
+      "id": "f9ed06ef-79ac-46cd-8847-2558d85726b6",
+      "name": "Clasifica la intención3"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.intencion }}",
+                    "rightValue": "confirmar",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "9adb6a12-0290-4f6e-8f60-6e5a08eed6e2"
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "confirmar"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "4004cf20-16d3-4370-93e3-d41cfd73c879",
+                    "leftValue": "={{ $json.intencion }}",
+                    "rightValue": "cancelar",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "cancelar"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "5b4785d4-fc79-48e0-8172-0034076ccbd9",
+                    "leftValue": "={{ $json.intencion }}",
+                    "rightValue": "modificar",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "modificar"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "2575f0cc-ed39-44ef-b9de-137c4e3152af",
+                    "leftValue": "={{ $json.intencion }}",
+                    "rightValue": "quiere_menu",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "quiere_menu"
+            }
+          ]
+        },
+        "options": {
+          "fallbackOutput": "none"
+        }
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.4,
+      "position": [
+        -656,
+        3584
+      ],
+      "id": "8a263261-5e64-439f-b171-6a0a2a209a94",
+      "name": "Clasifica la intención4"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.intencion }}",
+                    "rightValue": "respondido",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "9adb6a12-0290-4f6e-8f60-6e5a08eed6e2"
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "respondido"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "4004cf20-16d3-4370-93e3-d41cfd73c879",
+                    "leftValue": "={{ $json.intencion }}",
+                    "rightValue": "fuera_de_scope",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "fuera_de_scope"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "cb725883-4c4b-4e5e-b21c-0465d876944a",
+                    "leftValue": "={{ $json.intencion }}",
+                    "rightValue": "despedida",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "despedida"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "5b4785d4-fc79-48e0-8172-0034076ccbd9",
+                    "leftValue": "={{ $json.intencion }}",
+                    "rightValue": "quiere_menu",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "quiere_menu"
+            }
+          ]
+        },
+        "options": {
+          "fallbackOutput": "none"
+        }
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.4,
+      "position": [
+        -656,
+        4032
+      ],
+      "id": "cdb4479d-a61e-4d30-acba-1ebfa66d0063",
+      "name": "Clasifica la intención5"
+    },
+    {
+      "parameters": {
+        "jsCode": "const raw = $input.first().json.text;\n\nconst cleaned = raw\n  .replace(/```json/g, '')\n  .replace(/```/g, '')\n  .trim();\n\nlet respuesta, intencion;\n\ntry {\n  const fixedJson = cleaned.replace(/:\\s*\"([\\s\\S]*?)\"/g, (match, p1) => {\n    const fixed = p1.replace(/\\n/g, '\\\\n').replace(/\\r/g, '');\n    return `: \"${fixed}\"`;\n  });\n  const parsed = JSON.parse(fixedJson);\n  const data = parsed.output || parsed;\n  respuesta = data.respuesta;\n  intencion = data.intencion;\n} catch(e) {\n  respuesta = \"¡Hola! ¿En qué puedo ayudarte? 😊\\n1️⃣ Agendar cita\\n2️⃣ Ver mis citas\\n3️⃣ Cancelar una cita\\n4️⃣ Información de la veterinaria\\n5️⃣ Hablar con alguien del equipo\";\n  intencion = \"desconocido\";\n}\n\nreturn [{\n  json: { respuesta, intencion }\n}];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -832,
+        560
+      ],
+      "id": "eb7eb64a-7fb1-4784-bb6b-51eac11ff22b",
+      "name": "Code in JavaScript"
+    },
+    {
+      "parameters": {
+        "jsCode": "const raw = $input.first().json.text;\n\nconst cleaned = raw\n  .replace(/```json/g, '')\n  .replace(/```/g, '')\n  .trim();\n\nlet respuesta, intencion, datos;\n\ntry {\n  const fixedJson = cleaned.replace(/:\\s*\"([\\s\\S]*?)\"/g, (match, p1) => {\n    const fixed = p1.replace(/\\n/g, '\\\\n').replace(/\\r/g, '');\n    return `: \"${fixed}\"`;\n  });\n  const parsed = JSON.parse(fixedJson);\n  const data = parsed.output || parsed;\n  respuesta = data.respuesta;\n  intencion = data.intencion;\n  datos = data.datos || {};\n} catch(e) {\n  respuesta = \"¿Cómo se llama tu mascota y qué tipo de animal es? Ejemplo: 'Luna, es una perra'\";\n  intencion = \"dato_invalido\";\n  datos = {};\n}\n\nreturn [{\n  json: { respuesta, intencion, datos }\n}];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -800,
+        2112
+      ],
+      "id": "1382f019-a0ec-4d9f-93d1-361de30690ea",
+      "name": "Code in JavaScript1"
+    },
+    {
+      "parameters": {
+        "jsCode": "const raw = $input.first().json.text;\n\nconst cleaned = raw\n  .replace(/```json/g, '')\n  .replace(/```/g, '')\n  .trim();\n\nlet respuesta, intencion, datos;\n\ntry {\n  const fixedJson = cleaned.replace(/:\\s*\"([\\s\\S]*?)\"/g, (match, p1) => {\n    const fixed = p1.replace(/\\n/g, '\\\\n').replace(/\\r/g, '');\n    return `: \"${fixed}\"`;\n  });\n  const parsed = JSON.parse(fixedJson);\n  const data = parsed.output || parsed;\n  respuesta = data.respuesta;\n  intencion = data.intencion;\n  datos = data.datos || {};\n} catch(e) {\n  respuesta = \"¿Qué servicio necesita tu mascota?\\n- Consulta general\\n- Vacunación\\n- Desparasitación\\n- Grooming\\n- Cirugía\\n- Emergencia\";\n  intencion = \"servicio_invalido\";\n  datos = {};\n}\n\nreturn [{\n  json: { respuesta, intencion, datos }\n}];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -896,
+        2608
+      ],
+      "id": "f1940eac-b366-4917-b8b2-dc9d6d0455e4",
+      "name": "Code in JavaScript2"
+    },
+    {
+      "parameters": {
+        "jsCode": "const raw = $input.first().json.text;\n\nconst cleaned = raw\n  .replace(/```json/g, '')\n  .replace(/```/g, '')\n  .trim();\n\nlet respuesta, intencion, datos;\n\ntry {\n  const fixedJson = cleaned.replace(/:\\s*\"([\\s\\S]*?)\"/g, (match, p1) => {\n    const fixed = p1.replace(/\\n/g, '\\\\n').replace(/\\r/g, '');\n    return `: \"${fixed}\"`;\n  });\n  const parsed = JSON.parse(fixedJson);\n  const data = parsed.output || parsed;\n  respuesta = data.respuesta;\n  intencion = data.intencion;\n  datos = data.datos || {};\n} catch(e) {\n  respuesta = \"¿Para qué fecha y hora te queda bien? 📅\\nPuedes escribir algo como: 'mañana a las 3pm' o 'el viernes a las 10am'\";\n  intencion = \"fecha_invalida\";\n  datos = {};\n}\n\nreturn [{\n  json: { respuesta, intencion, datos }\n}];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -752,
+        3056
+      ],
+      "id": "35b5e10f-e715-4200-9b0f-0a2b1ff4cfdf",
+      "name": "Code in JavaScript3"
+    },
+    {
+      "parameters": {
+        "jsCode": "const raw = $input.first().json.text;\n\nconst cleaned = raw\n  .replace(/```json/g, '')\n  .replace(/```/g, '')\n  .trim();\n\nlet respuesta, intencion, datos;\n\ntry {\n  const fixedJson = cleaned.replace(/:\\s*\"([\\s\\S]*?)\"/g, (match, p1) => {\n    const fixed = p1.replace(/\\n/g, '\\\\n').replace(/\\r/g, '');\n    return `: \"${fixed}\"`;\n  });\n  const parsed = JSON.parse(fixedJson);\n  const data = parsed.output || parsed;\n  respuesta = data.respuesta;\n  intencion = data.intencion;\n  datos = data.datos || {};\n} catch(e) {\n  respuesta = \"¿Confirmamos tu cita? (sí / no)\";\n  intencion = \"cancelar\";\n  datos = {};\n}\n\nreturn [{\n  json: { respuesta, intencion, datos }\n}];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -880,
+        3616
+      ],
+      "id": "aa5bb431-a385-4006-add3-0c14dc9eaacf",
+      "name": "Code in JavaScript4"
+    },
+    {
+      "parameters": {
+        "jsCode": "const raw = $input.first().json.text;\n\nconst cleaned = raw\n  .replace(/```json/g, '')\n  .replace(/```/g, '')\n  .trim();\n\nlet respuesta, intencion;\n\ntry {\n  const fixedJson = cleaned.replace(/:\\s*\"([\\s\\S]*?)\"/g, (match, p1) => {\n    const fixed = p1.replace(/\\n/g, '\\\\n').replace(/\\r/g, '');\n    return `: \"${fixed}\"`;\n  });\n  const parsed = JSON.parse(fixedJson);\n  const data = parsed.output || parsed;\n  respuesta = data.respuesta;\n  intencion = data.intencion;\n} catch(e) {\n  respuesta = \"¿En qué más puedo ayudarte sobre la clínica?\";\n  intencion = \"respondido\";\n}\n\nreturn [{\n  json: { respuesta, intencion }\n}];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -880,
+        4064
+      ],
+      "id": "d25940a9-9f21-44e7-b23b-2c16dc2995c3",
+      "name": "Code in JavaScript5"
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "UPDATE usuarios\nSET updated_at = NOW()\nWHERE telegram_id = $1;\n",
+        "options": {
+          "queryReplacement": "={{ $('Telegram Trigger').item.json.message.chat.id }}"
+        }
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        -2336,
+        2416
+      ],
+      "id": "3eb3e9ba-a4de-4a49-8dbb-f772598b4640",
+      "name": "Actualiza la ultima interaccion",
+      "alwaysOutputData": true,
+      "credentials": {
+        "postgres": {
+          "id": "5hM2Lgxfq15VCEli",
+          "name": "Supabase-Vet"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const citas = $input.all();\n\nif (citas.length === 0) {\n  return [{\n    json: {\n      mensaje: \"No tienes citas agendadas actualmente. 🐾\\n\\n¿En qué más puedo ayudarte?\\n\\n1️⃣ Agendar cita\\n2️⃣ Ver mis citas\\n3️⃣ Cancelar una cita\\n4️⃣ Información de la veterinaria\\n5️⃣ Hablar con alguien del equipo\"\n    }\n  }];\n}\n\nconst listado = citas.map((cita, index) => {\n  const fecha = new Date(cita.json.fecha_hora);\n  const fechaLegible = fecha.toLocaleDateString('es-PE', {\n    weekday: 'long',\n    year: 'numeric',\n    month: 'long',\n    day: 'numeric',\n    hour: '2-digit',\n    minute: '2-digit'\n  });\n\n  return `${index + 1}. 🐾 ${cita.json.mascota}\n   🩺 ${cita.json.servicio}\n   📅 ${fechaLegible}\n   Estado: ${cita.json.estado_cita}`;\n}).join('\\n\\n');\n\nreturn [{\n  json: {\n    mensaje: `Tus citas próximas 📋\\n\\n${listado}`\n  }\n}];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        144,
+        288
+      ],
+      "id": "675ea948-0465-4cbf-a190-63a449eb442d",
+      "name": "Formatea el listado"
+    },
+    {
+      "parameters": {
+        "jsCode": "const citas = $input.all();\n\nif (citas.length === 0) {\n  return [{\n    json: {\n      mensaje: \"No tienes citas pendientes para cancelar. 🐾\\n\\n1️⃣ Agendar cita\\n2️⃣ Ver mis citas\\n3️⃣ Cancelar una cita\\n4️⃣ Información de la veterinaria\\n5️⃣ Hablar con alguien del equipo\",\n      tiene_citas: false\n    }\n  }];\n}\n\nconst listado = citas.map((cita, index) => {\n  const fecha = new Date(cita.json.fecha_hora);\n  const fechaLegible = fecha.toLocaleDateString('es-PE', {\n    weekday: 'long',\n    day: 'numeric',\n    month: 'long',\n    hour: '2-digit',\n    minute: '2-digit'\n  });\n  return `${index + 1}. 🐾 ${cita.json.mascota}\n   🩺 ${cita.json.servicio}\n   📅 ${fechaLegible}`;\n}).join('\\n\\n');\n\nreturn [{\n  json: {\n    mensaje: `¿Cuál cita deseas cancelar? Escribe el número 👇\\n\\n${listado}`,\n    tiene_citas: true,\n    citas: citas.map((c, index) => ({ \n      numero: index + 1,\n      id: c.json.id,\n      mascota: c.json.mascota,\n      fecha: c.json.fecha_hora,\n      servicio: c.json.servicio\n    }))\n  }\n}];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        288,
+        416
+      ],
+      "id": "8f9f4b42-c944-420e-9640-79d52d8eb0cc",
+      "name": "Clasifica si tiene citas"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $('Telegram Trigger').item.json.message.text }}",
+        "messages": {
+          "messageValues": [
+            {
+              "message": "=Rol:\nEres el asistente de Veterinaria Francisco Pizarro. Estás en el paso \nde selección de cita para cancelar.\n\nContexto:\nCitas disponibles: {{ JSON.stringify($('Busca al cliente').item.json.contexto_temporal)}}\n\nTarea:\nIdentifica cuál cita quiere cancelar el usuario. Puede responder con \nel número de posición (1, 2, 3) o el nombre de la mascota.\n\nValidaciones:\n- El número debe coincidir con el campo \"numero\" del listado.\n- El nombre debe coincidir con el campo \"mascota\" del listado.\n- Si no coincide con ninguna cita disponible, es cancelacion_invalida.\n\nReglas:\n- Si el usuario escribe \"menu\", \"inicio\" o \"salir\", clasifica como \"quiere_menu\".\n- Responde ÚNICAMENTE con este JSON sin texto adicional:\n\n{\n  \"respuesta\": \"texto que verá el usuario\",\n  \"intencion\": \"cancelacion_valida | cancelacion_invalida | quiere_menu\",\n  \"datos\": {\n    \"cita_id\": null\n  }\n}\n\nRespuestas según intención:\n- cancelacion_valida: usa el campo \"id\" real de la cita seleccionada \n  en \"cita_id\" y responde: \"¿Confirmas que deseas cancelar la cita de \n  [mascota] del [fecha legible]? (sí / no)\"\n- cancelacion_invalida: pide amablemente que elija un número válido \n  del listado.\n- quiere_menu: \"Entendido, volvemos al menú principal.\""
+            }
+          ]
+        },
+        "batching": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.9,
+      "position": [
+        -1168,
+        1216
+      ],
+      "id": "0c139ffc-999e-490a-8a58-567d2a32f5fa",
+      "name": "Cancelar cita"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.intencion }}",
+                    "rightValue": "confirmar_cancelacion",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "9adb6a12-0290-4f6e-8f60-6e5a08eed6e2"
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "confirmar_cancelacion "
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "4004cf20-16d3-4370-93e3-d41cfd73c879",
+                    "leftValue": "={{ $json.intencion }}",
+                    "rightValue": "no_cancelar",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "no_cancelar"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "df504408-4144-45d3-8698-55cf4324f35a",
+                    "leftValue": "={{ $json.intencion }}",
+                    "rightValue": "quiere_menu",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "quiere_menu"
+            }
+          ]
+        },
+        "options": {
+          "fallbackOutput": "none"
+        }
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.4,
+      "position": [
+        -576,
+        1664
+      ],
+      "id": "194a38e6-bea5-4986-a36f-8d241e6c185c",
+      "name": "Clasifica la intención7"
+    },
+    {
+      "parameters": {
+        "jsCode": "const raw = $input.first().json.text;\n\nconst cleaned = raw\n  .replace(/```json/g, '')\n  .replace(/```/g, '')\n  .trim();\n\nlet respuesta, intencion;\n\ntry {\n  const fixedJson = cleaned.replace(/:\\s*\"([\\s\\S]*?)\"/g, (match, p1) => {\n    const fixed = p1.replace(/\\n/g, '\\\\n').replace(/\\r/g, '');\n    return `: \"${fixed}\"`;\n  });\n  const parsed = JSON.parse(fixedJson);\n  const data = parsed.output || parsed;\n  respuesta = data.respuesta;\n  intencion = data.intencion;\n} catch(e) {\n  respuesta = \"¿Confirmas que deseas cancelar la cita? (sí / no)\";\n  intencion = \"no_cancelar\";\n}\n\nreturn [{\n  json: { respuesta, intencion }\n}];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -800,
+        1680
+      ],
+      "id": "b01eaba3-794a-4303-a41d-ffb4dcef2e5e",
+      "name": "Code in JavaScript8"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $('Telegram Trigger').item.json.message.text }}",
+        "messages": {
+          "messageValues": [
+            {
+              "message": "=Rol:\nEres el asistente de Veterinaria Francisco Pizarro. Acabas de preguntar al usuario si confirma la cancelación de su cita y estás esperando su respuesta.\n\nTarea:\nDetecta si el usuario confirma o rechaza la cancelación. Puede responder de forma coloquial como \"sí\", \"dale\", \"no\", \"mejor no\", \"déjalo así\", etc.\n\nReglas:\n- Si el usuario escribe \"menu\", \"inicio\" o \"salir\", clasifica como \"quiere_menu\".\n- En caso de duda, clasifica como \"no_cancelar\" para proteger al usuario.\n- Responde ÚNICAMENTE con este JSON sin texto adicional:\n\n{\n  \"respuesta\": \"texto que verá el usuario\",\n  \"intencion\": \"confirmar_cancelacion | no_cancelar | quiere_menu\"\n}\n\nRespuestas según intención:\n- confirmar_cancelacion: \"Tu cita ha sido cancelada exitosamente. ✅\n  ¿Necesitas algo más?\n  1️⃣ Agendar cita\n  2️⃣ Ver mis citas\n  3️⃣ Cancelar una cita\n  4️⃣ Información de la veterinaria\n  5️⃣ Hablar con alguien del equipo\"\n- no_cancelar: \"Entendido 🐾\n  ¿Necesitas algo más?\n  1️⃣ Agendar cita\n  2️⃣ Ver mis citas\n  3️⃣ Cancelar una cita\n  4️⃣ Información de la veterinaria\n  5️⃣ Hablar con alguien del equipo\"\n- quiere_menu: \"Entendido, volvemos al menú principal.\""
+            }
+          ]
+        },
+        "batching": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.9,
+      "position": [
+        -1152,
+        1680
+      ],
+      "id": "c522986a-927e-4b72-a29a-00122a22c5e7",
+      "name": "Confirmar cancelacion"
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "UPDATE citas\nSET estado_cita = $1\nWHERE id = $2\nAND telegram_id = $3;",
+        "options": {
+          "queryReplacement": "={{ 'cancelada' }},{{ $('Busca al cliente').item.json.contexto_temporal.citas[0].id }} ,{{ $('Telegram Trigger').item.json.message.chat.id }}"
+        }
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        -304,
+        1536
+      ],
+      "id": "cd166d7b-ff79-4efc-91a6-b9545272cc1c",
+      "name": "Confirma cancelacion",
+      "alwaysOutputData": true,
+      "credentials": {
+        "postgres": {
+          "id": "5hM2Lgxfq15VCEli",
+          "name": "Supabase-Vet"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "2c4d3bb1-74d8-4036-b0e3-54b51696004a",
+              "leftValue": "={{ $json.tiene_citas }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        608,
+        416
+      ],
+      "id": "a15d87a2-12cf-489f-9fa5-cf9ccecf8273",
+      "name": "Tiene citas?"
+    },
+    {
+      "parameters": {
+        "model": "meta-llama/llama-4-scout-17b-16e-instruct",
+        "options": {
+          "temperature": 0.5
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
+      "typeVersion": 1,
+      "position": [
+        -1088,
+        4288
+      ],
+      "id": "892ace02-b337-4165-bd6c-6b30190bd92f",
+      "name": "Groq Chat Model",
+      "credentials": {
+        "groqApi": {
+          "id": "YknOpqrtOFRL0wHO",
+          "name": "Groq-Bot-Vet"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $('Telegram Trigger').item.json.message.chat.id }}",
+        "text": "=Tu cita ha sido cancelada exitosamente. ✅\n\n¿Necesitas algo más?\n\n1️⃣ Agendar cita\n2️⃣ Ver mis citas\n3️⃣ Cancelar una cita\n4️⃣ Información de la veterinaria\n5️⃣ Hablar con alguien del equipo",
+        "additionalFields": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        816,
+        1536
+      ],
+      "id": "348a1442-bb89-4335-a75d-4731f414a26a",
+      "name": "Confirma la cancelacion",
+      "webhookId": "8566827b-5462-4b37-b401-325d2b3993df",
+      "credentials": {
+        "telegramApi": {
+          "id": "zsP8syB6pnbLnxXc",
+          "name": "Bot-Vet - Telegram"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $('Telegram Trigger').item.json.message.chat.id }}",
+        "text": "=¿Necesitas algo más?\n\n1️⃣ Agendar cita\n2️⃣ Ver mis citas\n3️⃣ Cancelar una cita\n4️⃣ Información de la veterinaria\n5️⃣ Hablar con alguien del equipo",
+        "additionalFields": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        656,
+        1680
+      ],
+      "id": "de1e05c2-34d7-442a-b941-2fef8b810684",
+      "name": "No confirma la cancelacion",
+      "webhookId": "8566827b-5462-4b37-b401-325d2b3993df",
+      "credentials": {
+        "telegramApi": {
+          "id": "zsP8syB6pnbLnxXc",
+          "name": "Bot-Vet - Telegram"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $json.message.chat.id }}",
+        "text": "¿En qué más puedo ayudarte? 😊\n\n1️⃣ Agendar cita\n2️⃣ Ver mis citas\n3️⃣ Cancelar una cita\n4️⃣ Información de la veterinaria\n5️⃣ Hablar con alguien del equipo",
+        "additionalFields": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        384,
+        1808
+      ],
+      "id": "e23274b6-9c67-4bd9-aa17-b929ca657e9d",
+      "name": "Envia el menu 1.2",
+      "webhookId": "8566827b-5462-4b37-b401-325d2b3993df",
+      "credentials": {
+        "telegramApi": {
+          "id": "zsP8syB6pnbLnxXc",
+          "name": "Bot-Vet - Telegram"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $('Telegram Trigger').item.json.message.from.id }}",
+        "text": "=¡Genial! Vamos a agendar tu cita 🐾\n\n¿Cómo se llama tu mascota y qué tipo de animal es?\nEjemplo: \"Se llama Monchi y es una gata\" o \"Tengo un perro que se llama Max",
+        "additionalFields": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        736,
+        112
+      ],
+      "id": "3bfacd42-b319-41f9-984f-b860d4dcf87a",
+      "name": "Inicia el agendamiento",
+      "webhookId": "8566827b-5462-4b37-b401-325d2b3993df",
+      "credentials": {
+        "telegramApi": {
+          "id": "zsP8syB6pnbLnxXc",
+          "name": "Bot-Vet - Telegram"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $('Telegram Trigger').item.json.message.chat.id }}",
+        "text": "={{ $json.mensaje }}\n\n¿Necesitas algo más? 😊",
+        "additionalFields": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        448,
+        288
+      ],
+      "id": "64bbd7ee-76f3-4512-9be6-ae1066e8769d",
+      "name": "Muestras todas las citas",
+      "webhookId": "8566827b-5462-4b37-b401-325d2b3993df",
+      "credentials": {
+        "telegramApi": {
+          "id": "zsP8syB6pnbLnxXc",
+          "name": "Bot-Vet - Telegram"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $('Telegram Trigger').item.json.message.chat.id }}",
+        "text": "=Con gusto te ayudo 😊 ¿Qué te gustaría saber sobre nuestra clínica?\nPuedes preguntarme sobre horarios, dirección, servicios.",
+        "additionalFields": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        160,
+        560
+      ],
+      "id": "ba4af6e6-2a6b-4f72-a6d6-cae1ea1e3cc5",
+      "name": "Informa sobre el negocio",
+      "webhookId": "8566827b-5462-4b37-b401-325d2b3993df",
+      "credentials": {
+        "telegramApi": {
+          "id": "zsP8syB6pnbLnxXc",
+          "name": "Bot-Vet - Telegram"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $('Telegram Trigger').item.json.message.chat.id }}",
+        "text": "Enseguida te comunicamos con alguien de nuestro equipo. 🙋 \nEn horario de atención respondemos en menos de 10 minutos. \nHorario: lunes a sábado 9am - 7pm 📞",
+        "additionalFields": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        48,
+        720
+      ],
+      "id": "f6c4a6ac-83db-4d42-8120-397fa165d49c",
+      "name": "Informa la derivacion del mensaje",
+      "webhookId": "8566827b-5462-4b37-b401-325d2b3993df",
+      "credentials": {
+        "telegramApi": {
+          "id": "zsP8syB6pnbLnxXc",
+          "name": "Bot-Vet - Telegram"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "chatId": "-5152380586",
+        "text": "=⚠️ *Cliente necesita atención humana*\n\n👤 *Nombre:* {{ $('Telegram Trigger').item.json.message.chat.first_name }}\n🔗 *Usuario Telegram:* {{ $('Telegram Trigger').item.json.message.chat.username ? '@' + $('Telegram Trigger').item.json.message.chat.username : 'No tiene alias configurado' }}\n📱 *Teléfono (BD):* {{ $('Busca al cliente').item.json.telefono || 'Aún no registrado' }}\n🆔 *ID:* `{{ $('Telegram Trigger').item.json.message.chat.id }}`\n\n💬 *Mensaje original:*\n\"{{ $('Telegram Trigger').item.json.message.text }}\"",
+        "additionalFields": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        352,
+        720
+      ],
+      "id": "5c62f83a-4cf8-46de-a1df-bb57dd3c253e",
+      "name": "Notifica al equipo",
+      "webhookId": "8566827b-5462-4b37-b401-325d2b3993df",
+      "credentials": {
+        "telegramApi": {
+          "id": "zsP8syB6pnbLnxXc",
+          "name": "Bot-Vet - Telegram"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $('Telegram Trigger').item.json.message.chat.id }}",
+        "text": "={{ $json.respuesta }}",
+        "additionalFields": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        -112,
+        864
+      ],
+      "id": "8f26fd70-9576-44d7-95ef-da52f09eedb5",
+      "name": "Envia el menu 1.0",
+      "webhookId": "8566827b-5462-4b37-b401-325d2b3993df",
+      "credentials": {
+        "telegramApi": {
+          "id": "zsP8syB6pnbLnxXc",
+          "name": "Bot-Vet - Telegram"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $json.message.chat.id }}",
+        "text": "¿En qué más puedo ayudarte? 😊\n\n1️⃣ Agendar cita\n2️⃣ Ver mis citas\n3️⃣ Cancelar una cita\n4️⃣ Información de la veterinaria\n5️⃣ Hablar con alguien del equipo",
+        "additionalFields": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        176,
+        2240
+      ],
+      "id": "b47d0283-1a38-4da6-96c5-bec3cd988b60",
+      "name": "Envia el menu 1.3",
+      "webhookId": "8566827b-5462-4b37-b401-325d2b3993df",
+      "credentials": {
+        "telegramApi": {
+          "id": "zsP8syB6pnbLnxXc",
+          "name": "Bot-Vet - Telegram"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $json.message.chat.id }}",
+        "text": "¿En qué más puedo ayudarte? 😊\n\n1️⃣ Agendar cita\n2️⃣ Ver mis citas\n3️⃣ Cancelar una cita\n4️⃣ Información de la veterinaria\n5️⃣ Hablar con alguien del equipo",
+        "additionalFields": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        -16,
+        2752
+      ],
+      "id": "684a0332-ac33-4e39-9650-4c51a652be0a",
+      "name": "Envia el menu 1.4",
+      "webhookId": "8566827b-5462-4b37-b401-325d2b3993df",
+      "credentials": {
+        "telegramApi": {
+          "id": "zsP8syB6pnbLnxXc",
+          "name": "Bot-Vet - Telegram"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $json.message.chat.id }}",
+        "text": "¿En qué más puedo ayudarte? 😊\n\n1️⃣ Agendar cita\n2️⃣ Ver mis citas\n3️⃣ Cancelar una cita\n4️⃣ Información de la veterinaria\n5️⃣ Hablar con alguien del equipo",
+        "additionalFields": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        208,
+        3200
+      ],
+      "id": "ab2dacfe-9222-4e06-8b88-503b248b9d2d",
+      "name": "Envia el menu 1.5",
+      "webhookId": "8566827b-5462-4b37-b401-325d2b3993df",
+      "credentials": {
+        "telegramApi": {
+          "id": "zsP8syB6pnbLnxXc",
+          "name": "Bot-Vet - Telegram"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $('Telegram Trigger').item.json.message.chat.id }}",
+        "text": "={{ $('Code in JavaScript4').item.json.respuesta }}",
+        "additionalFields": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        800,
+        3376
+      ],
+      "id": "8d086525-3203-445c-87ae-4d21f531e1f1",
+      "name": "Muestra detalles de la cita",
+      "webhookId": "8566827b-5462-4b37-b401-325d2b3993df",
+      "credentials": {
+        "telegramApi": {
+          "id": "zsP8syB6pnbLnxXc",
+          "name": "Bot-Vet - Telegram"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $('Telegram Trigger').item.json.message.chat.id }}",
+        "text": "={{ $('Code in JavaScript4').item.json.respuesta }}",
+        "additionalFields": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        -32,
+        3552
+      ],
+      "id": "5b594c4c-0287-46ac-9574-45e5115b028b",
+      "name": "Cancela la cita acordada",
+      "webhookId": "8566827b-5462-4b37-b401-325d2b3993df",
+      "credentials": {
+        "telegramApi": {
+          "id": "zsP8syB6pnbLnxXc",
+          "name": "Bot-Vet - Telegram"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $('Telegram Trigger').item.json.message.chat.id }}",
+        "text": "={{ $('Code in JavaScript4').item.json.respuesta }}",
+        "additionalFields": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        224,
+        3696
+      ],
+      "id": "2f2fc7a9-0fcd-4d0e-b99d-27d2d1b2e5a5",
+      "name": "Modifica detalles de la cita",
+      "webhookId": "8566827b-5462-4b37-b401-325d2b3993df",
+      "credentials": {
+        "telegramApi": {
+          "id": "zsP8syB6pnbLnxXc",
+          "name": "Bot-Vet - Telegram"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $json.message.chat.id }}",
+        "text": "¿En qué más puedo ayudarte? 😊\n\n1️⃣ Agendar cita\n2️⃣ Ver mis citas\n3️⃣ Cancelar una cita\n4️⃣ Información de la veterinaria\n5️⃣ Hablar con alguien del equipo",
+        "additionalFields": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        0,
+        3792
+      ],
+      "id": "00b55fa4-550c-4c3e-a053-ebc3d1c91a59",
+      "name": "Envia el menu 1.6",
+      "webhookId": "8566827b-5462-4b37-b401-325d2b3993df",
+      "credentials": {
+        "telegramApi": {
+          "id": "zsP8syB6pnbLnxXc",
+          "name": "Bot-Vet - Telegram"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $('Telegram Trigger').item.json.message.chat.id }}",
+        "text": "={{ $('Code in JavaScript5').item.json.respuesta }}",
+        "additionalFields": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        0,
+        4112
+      ],
+      "id": "8d52949f-ccd5-4d6e-947c-34a7c3c46bea",
+      "name": "Despide al usuario 1.1",
+      "webhookId": "8566827b-5462-4b37-b401-325d2b3993df",
+      "credentials": {
+        "telegramApi": {
+          "id": "zsP8syB6pnbLnxXc",
+          "name": "Bot-Vet - Telegram"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $('Telegram Trigger').item.json.message.chat.id }}",
+        "text": "={{ $('Code in JavaScript5').item.json.respuesta }}",
+        "additionalFields": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        -192,
+        3984
+      ],
+      "id": "867bb748-c7d3-41b8-ae33-bd9184cda284",
+      "name": "Responde la info o invalidez",
+      "webhookId": "8566827b-5462-4b37-b401-325d2b3993df",
+      "credentials": {
+        "telegramApi": {
+          "id": "zsP8syB6pnbLnxXc",
+          "name": "Bot-Vet - Telegram"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "calendar": {
+          "__rl": true,
+          "value": "ce823e9510a47f45bcfca6144144e442ba4b5611b00b310da4ef824657afa3e0@group.calendar.google.com",
+          "mode": "list",
+          "cachedResultName": "Citas - Vet"
+        },
+        "start": "={{ DateTime.fromISO($('Busca al cliente').item.json.contexto_temporal.fecha_hora).setZone('America/Lima', {keepLocalTime: true}).toISO() }}",
+        "end": "={{ DateTime.fromISO($('Busca al cliente').item.json.contexto_temporal.fecha_hora).setZone('America/Lima', {keepLocalTime: true}).plus({minutes: 30}).toISO() }}",
+        "additionalFields": {
+          "attendees": [],
+          "color": "11",
+          "description": "=Cliente: {{ $('Busca al cliente').item.json.nombre }}\nMascota: {{ $('Busca al cliente').item.json.contexto_temporal.nombre_mascota }} ({{ $('Busca al cliente').item.json.contexto_temporal.especie }}\nServicio: {{ $('Busca al cliente').item.json.contexto_temporal.servicio }}\nTelefono: {{ $('Busca al cliente').item.json.telefono }}\nAgendado por: Bot Telegram",
+          "summary": "=🐾 {{ $('Busca al cliente').item.json.contexto_temporal.nombre_mascota }} - {{ $('Busca al cliente').item.json.contexto_temporal.servicio }}"
+        }
+      },
+      "type": "n8n-nodes-base.googleCalendar",
+      "typeVersion": 1.3,
+      "position": [
+        32,
+        3376
+      ],
+      "id": "fbe3b128-3036-4382-810c-9176629b5a6a",
+      "name": "Crea el evento",
+      "alwaysOutputData": true,
+      "credentials": {
+        "googleCalendarOAuth2Api": {
+          "id": "1POW0ynfEd1JCuui",
+          "name": "Google Calendar"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "UPDATE citas\nSET calendar_event_id = $1\nWHERE id = $2;",
+        "options": {
+          "queryReplacement": "={{ $json.id }},{{ $('Inserta la cita').item.json.id }}"
+        }
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        224,
+        3376
+      ],
+      "id": "764cd2c8-6674-443e-8564-ff75d788c7b3",
+      "name": "Guarda el id del evento",
+      "alwaysOutputData": true,
+      "credentials": {
+        "postgres": {
+          "id": "5hM2Lgxfq15VCEli",
+          "name": "Supabase-Vet"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "delete",
+        "calendar": {
+          "__rl": true,
+          "value": "ce823e9510a47f45bcfca6144144e442ba4b5611b00b310da4ef824657afa3e0@group.calendar.google.com",
+          "mode": "list",
+          "cachedResultName": "Citas - Vet"
+        },
+        "eventId": "={{ $('Extrae el id del evento').item.json.calendar_event_id  }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleCalendar",
+      "typeVersion": 1.3,
+      "position": [
+        96,
+        1536
+      ],
+      "id": "49da6cee-37a6-48a7-9bef-488ffc28dbaa",
+      "name": "Borra el evento",
+      "credentials": {
+        "googleCalendarOAuth2Api": {
+          "id": "1POW0ynfEd1JCuui",
+          "name": "Google Calendar"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT calendar_event_id \nFROM citas \nWHERE id = $1;",
+        "options": {
+          "queryReplacement": "={{ $('Busca al cliente').item.json.contexto_temporal.citas[0].id }}"
+        }
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        -112,
+        1536
+      ],
+      "id": "190768ce-4b24-4737-99c3-a4d65bcad7e2",
+      "name": "Extrae el id del evento",
+      "alwaysOutputData": true,
+      "credentials": {
+        "postgres": {
+          "id": "5hM2Lgxfq15VCEli",
+          "name": "Supabase-Vet"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1WaFMxpwrCxqFnWOX7lyw7Ozw-rfky6QofSbKGHFQ090",
+          "mode": "list",
+          "cachedResultName": "Registro - Veterinaria",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1WaFMxpwrCxqFnWOX7lyw7Ozw-rfky6QofSbKGHFQ090/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Citas",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1WaFMxpwrCxqFnWOX7lyw7Ozw-rfky6QofSbKGHFQ090/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Telegram ID": "={{ $('Busca al cliente').item.json.telegram_id }}",
+            "Cliente": "={{ $('Busca al cliente').item.json.nombre }}",
+            "Mascota": "={{ $('Busca al cliente').item.json.contexto_temporal.nombre_mascota }}",
+            "Especie": "={{ $('Busca al cliente').item.json.contexto_temporal.especie }}",
+            "Servicio": "={{ $('Busca al cliente').item.json.contexto_temporal.servicio }}",
+            "Fecha y Hora": "={{ DateTime.fromISO($('Busca al cliente').item.json.contexto_temporal.fecha_hora).setZone('America/Lima').toFormat('dd/MM/yyyy HH:mm') }}",
+            "ID": "={{ $('Inserta la cita').item.json.id }}",
+            "Estado": "Programado",
+            "Telefono": "={{ $('Busca al cliente').item.json.telefono }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "ID",
+              "displayName": "ID",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Telegram ID",
+              "displayName": "Telegram ID",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Cliente",
+              "displayName": "Cliente",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Mascota",
+              "displayName": "Mascota",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Especie",
+              "displayName": "Especie",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Servicio",
+              "displayName": "Servicio",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Fecha y Hora",
+              "displayName": "Fecha y Hora",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Telefono",
+              "displayName": "Telefono",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Estado",
+              "displayName": "Estado",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        416,
+        3376
+      ],
+      "id": "c7918c64-7ac0-4540-8156-e25f90ed7db3",
+      "name": "Inserta la cita al sheets",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "WxhBNLey4f5Ze4J8",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "1WaFMxpwrCxqFnWOX7lyw7Ozw-rfky6QofSbKGHFQ090",
+          "mode": "list",
+          "cachedResultName": "Registro - Veterinaria",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1WaFMxpwrCxqFnWOX7lyw7Ozw-rfky6QofSbKGHFQ090/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Citas",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1WaFMxpwrCxqFnWOX7lyw7Ozw-rfky6QofSbKGHFQ090/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "ID": "={{ $('Busca al cliente').item.json.contexto_temporal.citas[0].id }}",
+            "Estado": "Cancelado"
+          },
+          "matchingColumns": [
+            "ID"
+          ],
+          "schema": [
+            {
+              "id": "ID",
+              "displayName": "ID",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Telegram ID",
+              "displayName": "Telegram ID",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Cliente",
+              "displayName": "Cliente",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Mascota",
+              "displayName": "Mascota",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Especie",
+              "displayName": "Especie",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Servicio",
+              "displayName": "Servicio",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Fecha y Hora",
+              "displayName": "Fecha y Hora",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Estado",
+              "displayName": "Estado",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        272,
+        1536
+      ],
+      "id": "b14db408-1cc8-4b7f-9a51-945c2e4fc1f8",
+      "name": "Marca como cancelado",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "WxhBNLey4f5Ze4J8",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "OWK0IXVf7QXczhbM",
+          "mode": "list",
+          "cachedResultUrl": "/workflow/OWK0IXVf7QXczhbM",
+          "cachedResultName": "Actualiza estado a menu"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "telegram_id": "={{ $('Busca al cliente').item.json.telegram_id }}",
+            "estado": "consultando"
+          },
+          "matchingColumns": [
+            "telegram_id"
+          ],
+          "schema": [
+            {
+              "id": "telegram_id",
+              "displayName": "telegram_id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "estado",
+              "displayName": "estado",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {
+          "waitForSubWorkflow": true
+        }
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.3,
+      "position": [
+        -112,
+        560
+      ],
+      "id": "f758a51f-9b7b-4b62-b34f-2d138793c5f8",
+      "name": "Actualiza estado a consultando",
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "OWK0IXVf7QXczhbM",
+          "mode": "list",
+          "cachedResultUrl": "/workflow/OWK0IXVf7QXczhbM",
+          "cachedResultName": "Actualiza estado a menu"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "telegram_id": "={{ $('Busca al cliente').item.json.telegram_id }}",
+            "estado": "menu"
+          },
+          "matchingColumns": [
+            "telegram_id"
+          ],
+          "schema": [
+            {
+              "id": "telegram_id",
+              "displayName": "telegram_id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "estado",
+              "displayName": "estado",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {
+          "waitForSubWorkflow": true
+        }
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.3,
+      "position": [
+        -240,
+        1808
+      ],
+      "id": "9b964333-1f6c-491a-9cf2-4a60f9506eff",
+      "name": "Actualiza estado a menu1",
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "OWK0IXVf7QXczhbM",
+          "mode": "list",
+          "cachedResultUrl": "/workflow/OWK0IXVf7QXczhbM",
+          "cachedResultName": "Actualiza estado a menu"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "telegram_id": "={{ $('Busca al cliente').item.json.telegram_id }}",
+            "estado": "menu"
+          },
+          "matchingColumns": [
+            "telegram_id"
+          ],
+          "schema": [
+            {
+              "id": "telegram_id",
+              "displayName": "telegram_id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "estado",
+              "displayName": "estado",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {
+          "waitForSubWorkflow": true
+        }
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.3,
+      "position": [
+        -208,
+        2240
+      ],
+      "id": "7365d543-2cff-4fd3-8441-0b5d76944552",
+      "name": "Actualiza estado a menu2",
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "OWK0IXVf7QXczhbM",
+          "mode": "list",
+          "cachedResultUrl": "/workflow/OWK0IXVf7QXczhbM",
+          "cachedResultName": "Actualiza estado a menu"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "telegram_id": "={{ $('Busca al cliente').item.json.telegram_id }}",
+            "estado": "menu"
+          },
+          "matchingColumns": [
+            "telegram_id"
+          ],
+          "schema": [
+            {
+              "id": "telegram_id",
+              "displayName": "telegram_id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "estado",
+              "displayName": "estado",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {
+          "waitForSubWorkflow": true
+        }
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.3,
+      "position": [
+        -384,
+        2752
+      ],
+      "id": "71abb209-c3e4-4667-8745-9628fcf0b623",
+      "name": "Actualiza estado a menu3",
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "OWK0IXVf7QXczhbM",
+          "mode": "list",
+          "cachedResultUrl": "/workflow/OWK0IXVf7QXczhbM",
+          "cachedResultName": "Actualiza estado a menu"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "telegram_id": "={{ $('Busca al cliente').item.json.telegram_id }}",
+            "estado": "menu"
+          },
+          "matchingColumns": [
+            "telegram_id"
+          ],
+          "schema": [
+            {
+              "id": "telegram_id",
+              "displayName": "telegram_id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "estado",
+              "displayName": "estado",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {
+          "waitForSubWorkflow": true
+        }
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.3,
+      "position": [
+        -320,
+        3200
+      ],
+      "id": "7e2716d0-0c4d-45e4-b372-8731f7901bfe",
+      "name": "Actualiza estado a menu4",
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "OWK0IXVf7QXczhbM",
+          "mode": "list",
+          "cachedResultUrl": "/workflow/OWK0IXVf7QXczhbM",
+          "cachedResultName": "Actualiza estado a menu"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "telegram_id": "={{ $('Busca al cliente').item.json.telegram_id }}",
+            "estado": "menu"
+          },
+          "matchingColumns": [
+            "telegram_id"
+          ],
+          "schema": [
+            {
+              "id": "telegram_id",
+              "displayName": "telegram_id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "estado",
+              "displayName": "estado",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {
+          "waitForSubWorkflow": true
+        }
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.3,
+      "position": [
+        -352,
+        3792
+      ],
+      "id": "733832b8-2a52-4d90-b2d8-2da973ad78cd",
+      "name": "Actualiza estado a menu5",
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "OWK0IXVf7QXczhbM",
+          "mode": "list",
+          "cachedResultUrl": "/workflow/OWK0IXVf7QXczhbM",
+          "cachedResultName": "Actualiza estado a menu"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "telegram_id": "={{ $('Busca al cliente').item.json.telegram_id }}",
+            "estado": "menu"
+          },
+          "matchingColumns": [
+            "telegram_id"
+          ],
+          "schema": [
+            {
+              "id": "telegram_id",
+              "displayName": "telegram_id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "estado",
+              "displayName": "estado",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {
+          "waitForSubWorkflow": true
+        }
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.3,
+      "position": [
+        -368,
+        4112
+      ],
+      "id": "1e41121d-d6aa-4627-adb1-226b68679304",
+      "name": "Actualiza estado a menu6",
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "OWK0IXVf7QXczhbM",
+          "mode": "list",
+          "cachedResultUrl": "/workflow/OWK0IXVf7QXczhbM",
+          "cachedResultName": "Actualiza estado a menu"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "telegram_id": "={{ $('Busca al cliente').item.json.telegram_id }}",
+            "estado": "cancelando_cita",
+            "contexto_temporal": "={{ JSON.stringify({ citas: $json.citas }) }}"
+          },
+          "matchingColumns": [
+            "telegram_id"
+          ],
+          "schema": [
+            {
+              "id": "telegram_id",
+              "displayName": "telegram_id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "estado",
+              "displayName": "estado",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "contexto_temporal",
+              "displayName": "contexto_temporal",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {
+          "waitForSubWorkflow": true
+        }
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.3,
+      "position": [
+        864,
+        400
+      ],
+      "id": "ce54440c-6b76-490f-a55e-4841326e77f2",
+      "name": "Actualiza estado y contexto",
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "OWK0IXVf7QXczhbM",
+          "mode": "list",
+          "cachedResultUrl": "/workflow/OWK0IXVf7QXczhbM",
+          "cachedResultName": "Actualiza estado a menu"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "telegram_id": "={{ $('Busca al cliente').item.json.telegram_id }}",
+            "estado": "confirmando_cancelacion",
+            "contexto_temporal": "={{ JSON.stringify({ cita_id: $('Code in JavaScript7').item.json.datos.cita_id }) }}"
+          },
+          "matchingColumns": [
+            "telegram_id"
+          ],
+          "schema": [
+            {
+              "id": "telegram_id",
+              "displayName": "telegram_id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "estado",
+              "displayName": "estado",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "contexto_temporal",
+              "displayName": "contexto_temporal",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {
+          "waitForSubWorkflow": true
+        }
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.3,
+      "position": [
+        -16,
+        1088
+      ],
+      "id": "5c38a3a9-4aed-46c7-9ddb-0c3c3aab1b11",
+      "name": "Actualiza estado y contexto1",
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "OWK0IXVf7QXczhbM",
+          "mode": "list",
+          "cachedResultUrl": "/workflow/OWK0IXVf7QXczhbM",
+          "cachedResultName": "Actualiza estado a menu"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "telegram_id": "={{ $('Busca al cliente').item.json.telegram_id }}",
+            "estado": "menu",
+            "contexto_temporal": "={{ '{}' }}"
+          },
+          "matchingColumns": [
+            "telegram_id"
+          ],
+          "schema": [
+            {
+              "id": "telegram_id",
+              "displayName": "telegram_id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "estado",
+              "displayName": "estado",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "contexto_temporal",
+              "displayName": "contexto_temporal",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {
+          "waitForSubWorkflow": true
+        }
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.3,
+      "position": [
+        480,
+        1536
+      ],
+      "id": "04720e9f-7d4a-45d6-b51c-8ebe5e213f00",
+      "name": "Actualiza estado y limpia contexto",
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "OWK0IXVf7QXczhbM",
+          "mode": "list",
+          "cachedResultUrl": "/workflow/OWK0IXVf7QXczhbM",
+          "cachedResultName": "Actualiza estado a menu"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "telegram_id": "={{ $('Busca al cliente').item.json.telegram_id }}",
+            "estado": "menu",
+            "contexto_temporal": "={{ '{}' }}"
+          },
+          "matchingColumns": [
+            "telegram_id"
+          ],
+          "schema": [
+            {
+              "id": "telegram_id",
+              "displayName": "telegram_id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "estado",
+              "displayName": "estado",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "contexto_temporal",
+              "displayName": "contexto_temporal",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {
+          "waitForSubWorkflow": true
+        }
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.3,
+      "position": [
+        -16,
+        1680
+      ],
+      "id": "a88cc346-fef8-4ad8-9830-37436b7df164",
+      "name": "Actualiza estado y limpia contexto1",
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "OWK0IXVf7QXczhbM",
+          "mode": "list",
+          "cachedResultUrl": "/workflow/OWK0IXVf7QXczhbM",
+          "cachedResultName": "Actualiza estado a menu"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "telegram_id": "={{ $('Busca al cliente').item.json.telegram_id }}",
+            "estado": "agendando_servicio",
+            "contexto_temporal": "={{ JSON.stringify({ nombre_mascota: $('Code in JavaScript1').item.json.datos.nombre_mascota, especie: $('Code in JavaScript1').item.json.datos.especie}) }}"
+          },
+          "matchingColumns": [
+            "telegram_id"
+          ],
+          "schema": [
+            {
+              "id": "telegram_id",
+              "displayName": "telegram_id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "estado",
+              "displayName": "estado",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "contexto_temporal",
+              "displayName": "contexto_temporal",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {
+          "waitForSubWorkflow": true
+        }
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.3,
+      "position": [
+        -208,
+        1984
+      ],
+      "id": "26f6e332-64ef-4d7f-9674-edda1af61578",
+      "name": "Actualiza estado y contexto2",
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "OWK0IXVf7QXczhbM",
+          "mode": "list",
+          "cachedResultUrl": "/workflow/OWK0IXVf7QXczhbM",
+          "cachedResultName": "Actualiza estado a menu"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "telegram_id": "={{ $('Busca al cliente').item.json.telegram_id }}",
+            "estado": "agendando_fecha",
+            "contexto_temporal": "={{ JSON.stringify({servicio: $json.datos.servicio})"
+          },
+          "matchingColumns": [
+            "telegram_id"
+          ],
+          "schema": [
+            {
+              "id": "telegram_id",
+              "displayName": "telegram_id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "estado",
+              "displayName": "estado",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "contexto_temporal",
+              "displayName": "contexto_temporal",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {
+          "waitForSubWorkflow": true
+        }
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.3,
+      "position": [
+        -384,
+        2464
+      ],
+      "id": "f332cb4e-da95-4079-94c5-9cc22ac29153",
+      "name": "Actualiza estado y contexto3",
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "OWK0IXVf7QXczhbM",
+          "mode": "list",
+          "cachedResultUrl": "/workflow/OWK0IXVf7QXczhbM",
+          "cachedResultName": "Actualiza estado a menu"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "telegram_id": "={{ $('Busca al cliente').item.json.telegram_id }}",
+            "estado": "confirmando_cita",
+            "contexto_temporal": "={{ JSON.stringify({ fecha_hora: $('Code in JavaScript3').item.json.datos.fecha_hora }) }}"
+          },
+          "matchingColumns": [
+            "telegram_id"
+          ],
+          "schema": [
+            {
+              "id": "telegram_id",
+              "displayName": "telegram_id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "estado",
+              "displayName": "estado",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "contexto_temporal",
+              "displayName": "contexto_temporal",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {
+          "waitForSubWorkflow": true
+        }
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.3,
+      "position": [
+        -224,
+        2928
+      ],
+      "id": "7c45e2d3-5881-4bfe-9dfe-1e3ffcb9405d",
+      "name": "Actualiza estado y contexto4",
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "OWK0IXVf7QXczhbM",
+          "mode": "list",
+          "cachedResultUrl": "/workflow/OWK0IXVf7QXczhbM",
+          "cachedResultName": "Actualiza estado a menu"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "telegram_id": "={{ $('Busca al cliente').item.json.telegram_id }}",
+            "estado": "menu",
+            "contexto_temporal": "={{ '{}' }}"
+          },
+          "matchingColumns": [
+            "telegram_id"
+          ],
+          "schema": [
+            {
+              "id": "telegram_id",
+              "displayName": "telegram_id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "estado",
+              "displayName": "estado",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "contexto_temporal",
+              "displayName": "contexto_temporal",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {
+          "waitForSubWorkflow": true
+        }
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.3,
+      "position": [
+        608,
+        3376
+      ],
+      "id": "23ad1c05-bcaf-46dd-bef8-b518e37222e9",
+      "name": "Actualiza estado y borra contexto",
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "OWK0IXVf7QXczhbM",
+          "mode": "list",
+          "cachedResultUrl": "/workflow/OWK0IXVf7QXczhbM",
+          "cachedResultName": "Actualiza estado a menu"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "telegram_id": "={{ $('Busca al cliente').item.json.telegram_id }}",
+            "estado": "menu",
+            "contexto_temporal": "={{ '{}' }}"
+          },
+          "matchingColumns": [
+            "telegram_id"
+          ],
+          "schema": [
+            {
+              "id": "telegram_id",
+              "displayName": "telegram_id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "estado",
+              "displayName": "estado",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "contexto_temporal",
+              "displayName": "contexto_temporal",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {
+          "waitForSubWorkflow": true
+        }
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.3,
+      "position": [
+        -320,
+        3552
+      ],
+      "id": "38411f43-0507-4e29-a337-4f25536faaf4",
+      "name": "Actualiza estado y borra contexto1",
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "OWK0IXVf7QXczhbM",
+          "mode": "list",
+          "cachedResultUrl": "/workflow/OWK0IXVf7QXczhbM",
+          "cachedResultName": "Actualiza estado a menu"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "telegram_id": "={{ $('Busca al cliente').item.json.telegram_id }}",
+            "estado": "={{ $('Code in JavaScript4').item.json.datos.campo_modificar === 'fecha' ? 'agendando_fecha' : $('Code').item.json.datos.campo_modificar === 'servicio' ? 'agendando_servicio' : 'agendando_mascota' }}"
+          },
+          "matchingColumns": [
+            "telegram_id"
+          ],
+          "schema": [
+            {
+              "id": "telegram_id",
+              "displayName": "telegram_id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "estado",
+              "displayName": "estado",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "contexto_temporal",
+              "displayName": "contexto_temporal",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {
+          "waitForSubWorkflow": true
+        }
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.3,
+      "position": [
+        -160,
+        3696
+      ],
+      "id": "74e5d127-13ed-4af1-8024-fb0d91040a38",
+      "name": "Actualiza estado y contexto5",
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $('Telegram Trigger').item.json.message.chat.id }}",
+        "text": "={{ $('Code in JavaScript1').item.json.respuesta }}",
+        "additionalFields": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        16,
+        2112
+      ],
+      "id": "7b62fa9c-f7d9-44bb-82b8-313393b243b8",
+      "name": "Pregunta el servicio o repite la pregunta",
+      "webhookId": "8566827b-5462-4b37-b401-325d2b3993df",
+      "credentials": {
+        "telegramApi": {
+          "id": "zsP8syB6pnbLnxXc",
+          "name": "Bot-Vet - Telegram"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $('Telegram Trigger').item.json.message.chat.id }}",
+        "text": "={{ $('Code in JavaScript3').item.json.respuesta }}",
+        "additionalFields": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        -16,
+        3072
+      ],
+      "id": "e337c208-b693-468d-8133-4d70794cc4dd",
+      "name": "Pide confirmacion o informa un error",
+      "webhookId": "8566827b-5462-4b37-b401-325d2b3993df",
+      "credentials": {
+        "telegramApi": {
+          "id": "zsP8syB6pnbLnxXc",
+          "name": "Bot-Vet - Telegram"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $('Telegram Trigger').item.json.message.chat.id }}",
+        "text": "={{ $('Code in JavaScript2').item.json.respuesta }}",
+        "additionalFields": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        -144,
+        2608
+      ],
+      "id": "9039c92b-8646-4506-94ab-dd12b15c2978",
+      "name": "Pregunta el horario o informa un error",
+      "webhookId": "8566827b-5462-4b37-b401-325d2b3993df",
+      "credentials": {
+        "telegramApi": {
+          "id": "zsP8syB6pnbLnxXc",
+          "name": "Bot-Vet - Telegram"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $('Telegram Trigger').item.json.message.from.id }}",
+        "text": "={{ $('Clasifica si tiene citas').item.json.mensaje }}",
+        "additionalFields": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        1104,
+        592
+      ],
+      "id": "0f6bbe0b-8f8e-4c10-b4c5-3ee965d1df3e",
+      "name": "Muestra las citas pendientes y notifica que no hay",
+      "webhookId": "8566827b-5462-4b37-b401-325d2b3993df",
+      "credentials": {
+        "telegramApi": {
+          "id": "zsP8syB6pnbLnxXc",
+          "name": "Bot-Vet - Telegram"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $('Telegram Trigger').item.json.message.chat.id }}",
+        "text": "={{ $('Code in JavaScript7').item.json.respuesta }}",
+        "additionalFields": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        240,
+        1216
+      ],
+      "id": "13a4568a-dbb1-4149-97f6-6bee61619d1d",
+      "name": "Pregunta la confirmacion o notifica invalidez",
+      "webhookId": "8566827b-5462-4b37-b401-325d2b3993df",
+      "credentials": {
+        "telegramApi": {
+          "id": "zsP8syB6pnbLnxXc",
+          "name": "Bot-Vet - Telegram"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "OWK0IXVf7QXczhbM",
+          "mode": "list",
+          "cachedResultUrl": "/workflow/OWK0IXVf7QXczhbM",
+          "cachedResultName": "Actualiza estado a menu"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "telegram_id": "={{ $('Busca al cliente').item.json.telegram_id }}",
+            "estado": "menu"
+          },
+          "matchingColumns": [
+            "telegram_id"
+          ],
+          "schema": [
+            {
+              "id": "telegram_id",
+              "displayName": "telegram_id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "estado",
+              "displayName": "estado",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {
+          "waitForSubWorkflow": true
+        }
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.3,
+      "position": [
+        -80,
+        1360
+      ],
+      "id": "b68aee35-30a5-4a8e-ba80-1d5c21cb0154",
+      "name": "Actualiza estado a menu",
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $json.message.chat.id }}",
+        "text": "¿En qué más puedo ayudarte? 😊\n\n1️⃣ Agendar cita\n2️⃣ Ver mis citas\n3️⃣ Cancelar una cita\n4️⃣ Información de la veterinaria\n5️⃣ Hablar con alguien del equipo",
+        "additionalFields": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        432,
+        1360
+      ],
+      "id": "49c6bb46-4149-43f8-918a-befd22804b53",
+      "name": "Envia el menu 1.1",
+      "webhookId": "8566827b-5462-4b37-b401-325d2b3993df",
+      "credentials": {
+        "telegramApi": {
+          "id": "zsP8syB6pnbLnxXc",
+          "name": "Bot-Vet - Telegram"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const raw = $input.first().json.text;\n\nconst cleaned = raw\n  .replace(/```json/g, '')\n  .replace(/```/g, '')\n  .trim();\n\nlet respuesta, intencion, datos;\n\ntry {\n  const fixedJson = cleaned.replace(/:\\s*\"([\\s\\S]*?)\"/g, (match, p1) => {\n    const fixed = p1.replace(/\\n/g, '\\\\n').replace(/\\r/g, '');\n    return `: \"${fixed}\"`;\n  });\n  const parsed = JSON.parse(fixedJson);\n  const data = parsed.output || parsed;\n  respuesta = data.respuesta;\n  intencion = data.intencion;\n  datos = data.datos || {};\n} catch(e) {\n  respuesta = \"Por favor elige un número válido del listado.\";\n  intencion = \"cancelacion_invalida\";\n  datos = {};\n}\n\nreturn [{\n  json: { respuesta, intencion, datos }\n}];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -736,
+        1216
+      ],
+      "id": "5c219067-57c2-43f0-b966-56dd65c13466",
+      "name": "Code in JavaScript7"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.intencion }}",
+                    "rightValue": "cancelacion_valida",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "9adb6a12-0290-4f6e-8f60-6e5a08eed6e2"
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "cancelacion_valida"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "4004cf20-16d3-4370-93e3-d41cfd73c879",
+                    "leftValue": "={{ $json.intencion }}",
+                    "rightValue": "cancelacion_invalida",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "cancelacion_invalida"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "afa4cf6b-c0ee-45aa-bb71-355824cb739c",
+                    "leftValue": "={{ $json.intencion }}",
+                    "rightValue": "quiere_menu",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "quiere_menu"
+            }
+          ]
+        },
+        "options": {
+          "fallbackOutput": "none"
+        }
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.4,
+      "position": [
+        -400,
+        1200
+      ],
+      "id": "c40095da-a2d1-47af-a7b3-21382c208d5a",
+      "name": "Clasifica la intención6"
+    },
+    {
+      "parameters": {
+        "jsCode": "const data =  $('Busca al cliente').first().json.estado_conversacion ?? $('Guarda al cliente').first().json.estado_conversacion \n\nreturn {data};"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -2128,
+        2416
+      ],
+      "id": "ae3e7e3f-2428-4630-8f3b-fd3d3b91787c",
+      "name": "Clasifica contexto"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Fecha actual en Lima (UTC-5)\nconst ahoraUTC = new Date();\nconst offsetMs = -5 * 60 * 60 * 1000;\nconst ahoraLima = new Date(ahoraUTC.getTime() + offsetMs);\n\nconst pad = (n) => String(n).padStart(2, '0');\n\nconst yyyy = ahoraLima.getUTCFullYear();\nconst mm   = pad(ahoraLima.getUTCMonth() + 1);\nconst dd   = pad(ahoraLima.getUTCDate());\nconst hh   = pad(ahoraLima.getUTCHours());\nconst min  = pad(ahoraLima.getUTCMinutes());\nconst ss   = pad(ahoraLima.getUTCSeconds());\n\nconst fecha_hoy   = `${yyyy}-${mm}-${dd}`;\nconst hora_actual = `${hh}:${min}:${ss}`;\n\nconst diasNombre = ['domingo','lunes','martes','miércoles','jueves','viernes','sábado'];\nconst nombre_hoy = diasNombre[ahoraLima.getUTCDay()];\n\n// Calcula la próxima ocurrencia de un día (0=dom, 1=lun ... 6=sáb) desde mañana\nfunction proximoDia(targetWeekday) {\n  let cursor = new Date(ahoraLima.getTime());\n  cursor.setUTCDate(cursor.getUTCDate() + 1); // empieza desde mañana\n  while (cursor.getUTCDay() !== targetWeekday) {\n    cursor.setUTCDate(cursor.getUTCDate() + 1);\n  }\n  const y = cursor.getUTCFullYear();\n  const m = pad(cursor.getUTCMonth() + 1);\n  const d = pad(cursor.getUTCDate());\n  return `${y}-${m}-${d}`;\n}\n\nconst mananaDate = new Date(ahoraLima.getTime());\nmananaDate.setUTCDate(mananaDate.getUTCDate() + 1);\nconst manana = `${mananaDate.getUTCFullYear()}-${pad(mananaDate.getUTCMonth()+1)}-${pad(mananaDate.getUTCDate())}`;\n\nreturn [{\n  json: {\n    fecha_hoy,\n    hora_actual,\n    nombre_hoy,\n    manana,\n    proximo_lunes:     proximoDia(1),\n    proximo_martes:    proximoDia(2),\n    proximo_miercoles: proximoDia(3),\n    proximo_jueves:    proximoDia(4),\n    proximo_viernes:   proximoDia(5),\n    proximo_sabado:    proximoDia(6),\n  }\n}];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -1280,
+        3056
+      ],
+      "id": "0806f28f-1878-4a1f-ae04-22b2ff2ab1d7",
+      "name": "Código"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "ebf178a0-df02-489c-9e70-f666e9eab822",
+              "leftValue": "={{ $('Busca al cliente').item.json.telefono }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "empty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        -112,
+        96
+      ],
+      "id": "543c8ae7-a8cf-4568-ad8f-466b8481da83",
+      "name": "If"
+    },
+    {
+      "parameters": {
+        "jsCode": "const mensaje = $('Telegram Trigger').first().json.message.text;\n\n// Extrae solo los números del mensaje (ignora espacios, guiones o el símbolo +)\nlet numeros = mensaje.replace(/\\D/g, '');\n\n// Si el usuario incluyó el código de país de Perú (51) y el total son 11 dígitos, lo quitamos\nif (numeros.length === 11 && numeros.startsWith('51')) {\n  numeros = numeros.substring(2);\n}\n\nlet respuesta, intencion, telefono;\n\n// Validación estricta: Exactamente 9 dígitos y debe empezar con 9\nif (numeros.length === 9 && numeros.startsWith('9')) {\n  intencion = \"telefono_valido\";\n  telefono = numeros;\n  respuesta = \"¡Gracias! Ahora, para iniciar el agendamiento 🐾\\n¿Cómo se llama tu mascota y qué tipo de animal es? \\nEjemplo: 'Se llama Monchi y es una gata' o 'Tengo un perro que se llama Max'\";\n} else {\n  intencion = \"telefono_invalido\";\n  telefono = null;\n  respuesta = \"Hmm, ese no parece un celular válido. 🤔 Por favor, escríbeme tu número de 9 dígitos (ejemplo: 989898989) para poder contactarte.\";\n}\n\nreturn [{\n  json: { respuesta, intencion, telefono }\n}];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -1248,
+        4480
+      ],
+      "id": "dc11aadb-1d99-4998-b37d-f5c19246d0a6",
+      "name": "Extrae el numero"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.intencion }}",
+                    "rightValue": "telefono_valido",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "9adb6a12-0290-4f6e-8f60-6e5a08eed6e2"
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "telefono_valido"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "4004cf20-16d3-4370-93e3-d41cfd73c879",
+                    "leftValue": "={{ $json.intencion }}",
+                    "rightValue": "telefono_invalido",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "telefono_invalido"
+            }
+          ]
+        },
+        "options": {
+          "fallbackOutput": "none"
+        }
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.4,
+      "position": [
+        -976,
+        4480
+      ],
+      "id": "e279a911-c087-4a26-9df9-ad6c98611a48",
+      "name": "Clasifica la intención8"
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "UPDATE usuarios \nSET telefono = $1 \nWHERE telegram_id = $2;",
+        "options": {
+          "queryReplacement": "={{ $json.telefono }} , {{ $('Telegram Trigger').item.json.message.chat.id }}"
+        }
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        -640,
+        4368
+      ],
+      "id": "30c4737f-418f-481f-abdf-358a418973da",
+      "name": "Actualiza el numero",
+      "alwaysOutputData": true,
+      "credentials": {
+        "postgres": {
+          "id": "5hM2Lgxfq15VCEli",
+          "name": "Supabase-Vet"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "OWK0IXVf7QXczhbM",
+          "mode": "list",
+          "cachedResultUrl": "/workflow/OWK0IXVf7QXczhbM",
+          "cachedResultName": "Actualiza estado a menu"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "telegram_id": "={{ $('Busca al cliente').item.json.telegram_id }}",
+            "estado": "agendando_mascota"
+          },
+          "matchingColumns": [
+            "telegram_id"
+          ],
+          "schema": [
+            {
+              "id": "telegram_id",
+              "displayName": "telegram_id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "estado",
+              "displayName": "estado",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {
+          "waitForSubWorkflow": true
+        }
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.3,
+      "position": [
+        -416,
+        4368
+      ],
+      "id": "560f309c-6899-47d4-b67f-eb8e6495ae03",
+      "name": "Actualiza estado a agendando_cita1",
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "OWK0IXVf7QXczhbM",
+          "mode": "list",
+          "cachedResultUrl": "/workflow/OWK0IXVf7QXczhbM",
+          "cachedResultName": "Actualiza estado a menu"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "telegram_id": "={{ $('Busca al cliente').item.json.telegram_id }}",
+            "estado": "agendando_mascota"
+          },
+          "matchingColumns": [
+            "telegram_id"
+          ],
+          "schema": [
+            {
+              "id": "telegram_id",
+              "displayName": "telegram_id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "estado",
+              "displayName": "estado",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {
+          "waitForSubWorkflow": true
+        }
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.3,
+      "position": [
+        368,
+        112
+      ],
+      "id": "244fafdc-222a-4dfe-b3f8-e8bba5e42f70",
+      "name": "Actualiza estado a agendando_mascota",
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "OWK0IXVf7QXczhbM",
+          "mode": "list",
+          "cachedResultUrl": "/workflow/OWK0IXVf7QXczhbM",
+          "cachedResultName": "Actualiza estado a menu"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "telegram_id": "={{ $('Guarda al cliente').item.json.telegram_id }}",
+            "estado": "pidiendo_telefono"
+          },
+          "matchingColumns": [
+            "telegram_id"
+          ],
+          "schema": [
+            {
+              "id": "telegram_id",
+              "displayName": "telegram_id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "estado",
+              "displayName": "estado",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "contexto_temporal",
+              "displayName": "contexto_temporal",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {
+          "waitForSubWorkflow": true
+        }
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.3,
+      "position": [
+        192,
+        -64
+      ],
+      "id": "7f2e945a-72f2-40a2-8a0e-54da1b4855d5",
+      "name": "Actualiza estado a pidiendo_telefono",
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $('Telegram Trigger').item.json.message.from.id }}",
+        "text": "=¡Hola!, para poder registrar tu cita correctamente, ¿me podrías brindar tu número de celular? 📱",
+        "additionalFields": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        544,
+        -64
+      ],
+      "id": "426ab132-f0fc-4ac9-992d-171c8c3fa9c3",
+      "name": "Solicita telefono",
+      "webhookId": "8566827b-5462-4b37-b401-325d2b3993df",
+      "credentials": {
+        "telegramApi": {
+          "id": "zsP8syB6pnbLnxXc",
+          "name": "Bot-Vet - Telegram"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $('Telegram Trigger').item.json.message.chat.id }}",
+        "text": "={{ $('Extrae el numero').item.json.respuesta }}",
+        "additionalFields": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        -112,
+        4496
+      ],
+      "id": "947eee67-46df-4dba-81eb-386d344cf199",
+      "name": "Inicia agendamiento o muestra el error",
+      "webhookId": "8566827b-5462-4b37-b401-325d2b3993df",
+      "credentials": {
+        "telegramApi": {
+          "id": "zsP8syB6pnbLnxXc",
+          "name": "Bot-Vet - Telegram"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "INSERT INTO citas (telegram_id, fecha_hora, mascota, especie, servicio)\nVALUES ($1, $2::timestamp, $3, $4, $5)\nRETURNING *;",
+        "options": {
+          "queryReplacement": "={{ $('Telegram Trigger').item.json.message.chat.id }}, {{ $('Busca al cliente').item.json.contexto_temporal.fecha_hora }}, {{ $('Busca al cliente').item.json.contexto_temporal.nombre_mascota }}, {{ $('Busca al cliente').item.json.contexto_temporal.especie }},{{ $('Busca al cliente').item.json.contexto_temporal.servicio }}"
+        }
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        -176,
+        3376
+      ],
+      "id": "e71dff4d-d324-4182-a50a-d8b60624b4d9",
+      "name": "Inserta la cita",
+      "alwaysOutputData": true,
+      "credentials": {
+        "postgres": {
+          "id": "5hM2Lgxfq15VCEli",
+          "name": "Supabase-Vet"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Telegram Trigger": {
+      "main": [
+        [
+          {
+            "node": "Busca al cliente",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Clasifica el estado": {
+      "main": [
+        [
+          {
+            "node": "Menu",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Cancelar cita",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Confirmar cancelacion",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Agenda mascota",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Agenda servicio",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Código",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Confirma cita",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Consultas",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Extrae el numero",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Busca al cliente": {
+      "main": [
+        [
+          {
+            "node": "Es cliente registrado",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Es cliente registrado": {
+      "main": [
+        [
+          {
+            "node": "Actualiza la ultima interaccion",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Guarda al cliente",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Guarda al cliente": {
+      "main": [
+        [
+          {
+            "node": "Actualiza la ultima interaccion",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Muestra todas las citas": {
+      "main": [
+        [
+          {
+            "node": "Formatea el listado",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Muestra citas pendientes": {
+      "main": [
+        [
+          {
+            "node": "Clasifica si tiene citas",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Clasifica la intención": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Muestra todas las citas",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Muestra citas pendientes",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Actualiza estado a consultando",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Informa la derivacion del mensaje",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Envia el menu 1.0",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Envia el menu 1.0",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Clasifica la intención1": {
+      "main": [
+        [
+          {
+            "node": "Actualiza estado y contexto2",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Pregunta el servicio o repite la pregunta",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Actualiza estado a menu2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Menu": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Agenda mascota": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Agenda servicio": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Clasifica la intención2": {
+      "main": [
+        [
+          {
+            "node": "Actualiza estado y contexto3",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Pregunta el horario o informa un error",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Pregunta el horario o informa un error",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Actualiza estado a menu3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Agenda fecha": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Clasifica la intención3": {
+      "main": [
+        [
+          {
+            "node": "Actualiza estado y contexto4",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Pide confirmacion o informa un error",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Pide confirmacion o informa un error",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Pide confirmacion o informa un error",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Pide confirmacion o informa un error",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Actualiza estado a menu4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Confirma cita": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Clasifica la intención4": {
+      "main": [
+        [
+          {
+            "node": "Inserta la cita",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Actualiza estado y borra contexto1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Actualiza estado y contexto5",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Actualiza estado a menu5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Consultas": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Clasifica la intención5": {
+      "main": [
+        [
+          {
+            "node": "Responde la info o invalidez",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Responde la info o invalidez",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Actualiza estado a menu6",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Actualiza estado a menu6",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript": {
+      "main": [
+        [
+          {
+            "node": "Clasifica la intención",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript1": {
+      "main": [
+        [
+          {
+            "node": "Clasifica la intención1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript2": {
+      "main": [
+        [
+          {
+            "node": "Clasifica la intención2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript3": {
+      "main": [
+        [
+          {
+            "node": "Clasifica la intención3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript4": {
+      "main": [
+        [
+          {
+            "node": "Clasifica la intención4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript5": {
+      "main": [
+        [
+          {
+            "node": "Clasifica la intención5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Actualiza la ultima interaccion": {
+      "main": [
+        [
+          {
+            "node": "Clasifica contexto",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Formatea el listado": {
+      "main": [
+        [
+          {
+            "node": "Muestras todas las citas",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Clasifica si tiene citas": {
+      "main": [
+        [
+          {
+            "node": "Tiene citas?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Cancelar cita": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript7",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Clasifica la intención7": {
+      "main": [
+        [
+          {
+            "node": "Confirma cancelacion",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Actualiza estado y limpia contexto1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Actualiza estado a menu1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript8": {
+      "main": [
+        [
+          {
+            "node": "Clasifica la intención7",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Confirmar cancelacion": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript8",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Confirma cancelacion": {
+      "main": [
+        [
+          {
+            "node": "Extrae el id del evento",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Tiene citas?": {
+      "main": [
+        [
+          {
+            "node": "Actualiza estado y contexto",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Muestra las citas pendientes y notifica que no hay",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Informa la derivacion del mensaje": {
+      "main": [
+        [
+          {
+            "node": "Notifica al equipo",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Groq Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Consultas",
+            "type": "ai_languageModel",
+            "index": 0
+          },
+          {
+            "node": "Confirma cita",
+            "type": "ai_languageModel",
+            "index": 0
+          },
+          {
+            "node": "Agenda fecha",
+            "type": "ai_languageModel",
+            "index": 0
+          },
+          {
+            "node": "Menu",
+            "type": "ai_languageModel",
+            "index": 0
+          },
+          {
+            "node": "Cancelar cita",
+            "type": "ai_languageModel",
+            "index": 0
+          },
+          {
+            "node": "Confirmar cancelacion",
+            "type": "ai_languageModel",
+            "index": 0
+          },
+          {
+            "node": "Agenda mascota",
+            "type": "ai_languageModel",
+            "index": 0
+          },
+          {
+            "node": "Agenda servicio",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Crea el evento": {
+      "main": [
+        [
+          {
+            "node": "Guarda el id del evento",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Guarda el id del evento": {
+      "main": [
+        [
+          {
+            "node": "Inserta la cita al sheets",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Borra el evento": {
+      "main": [
+        [
+          {
+            "node": "Marca como cancelado",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extrae el id del evento": {
+      "main": [
+        [
+          {
+            "node": "Borra el evento",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Inserta la cita al sheets": {
+      "main": [
+        [
+          {
+            "node": "Actualiza estado y borra contexto",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Marca como cancelado": {
+      "main": [
+        [
+          {
+            "node": "Actualiza estado y limpia contexto",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Actualiza estado a consultando": {
+      "main": [
+        [
+          {
+            "node": "Informa sobre el negocio",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Actualiza estado a menu1": {
+      "main": [
+        [
+          {
+            "node": "Envia el menu 1.2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Actualiza estado a menu2": {
+      "main": [
+        [
+          {
+            "node": "Envia el menu 1.3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Actualiza estado a menu3": {
+      "main": [
+        [
+          {
+            "node": "Envia el menu 1.4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Actualiza estado a menu4": {
+      "main": [
+        [
+          {
+            "node": "Envia el menu 1.5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Actualiza estado a menu5": {
+      "main": [
+        [
+          {
+            "node": "Envia el menu 1.6",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Actualiza estado a menu6": {
+      "main": [
+        [
+          {
+            "node": "Despide al usuario 1.1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Actualiza estado y contexto": {
+      "main": [
+        [
+          {
+            "node": "Muestra las citas pendientes y notifica que no hay",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Actualiza estado y contexto1": {
+      "main": [
+        [
+          {
+            "node": "Pregunta la confirmacion o notifica invalidez",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Actualiza estado y limpia contexto": {
+      "main": [
+        [
+          {
+            "node": "Confirma la cancelacion",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Actualiza estado y limpia contexto1": {
+      "main": [
+        [
+          {
+            "node": "No confirma la cancelacion",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Actualiza estado y contexto2": {
+      "main": [
+        [
+          {
+            "node": "Pregunta el servicio o repite la pregunta",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Actualiza estado y contexto3": {
+      "main": [
+        [
+          {
+            "node": "Pregunta el horario o informa un error",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Actualiza estado y contexto4": {
+      "main": [
+        [
+          {
+            "node": "Pide confirmacion o informa un error",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Actualiza estado y borra contexto": {
+      "main": [
+        [
+          {
+            "node": "Muestra detalles de la cita",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Actualiza estado y borra contexto1": {
+      "main": [
+        [
+          {
+            "node": "Cancela la cita acordada",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Actualiza estado y contexto5": {
+      "main": [
+        [
+          {
+            "node": "Modifica detalles de la cita",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Actualiza estado a menu": {
+      "main": [
+        [
+          {
+            "node": "Envia el menu 1.1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript7": {
+      "main": [
+        [
+          {
+            "node": "Clasifica la intención6",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Clasifica la intención6": {
+      "main": [
+        [
+          {
+            "node": "Actualiza estado y contexto1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Pregunta la confirmacion o notifica invalidez",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Actualiza estado a menu",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Clasifica contexto": {
+      "main": [
+        [
+          {
+            "node": "Clasifica el estado",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Código": {
+      "main": [
+        [
+          {
+            "node": "Agenda fecha",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "Actualiza estado a pidiendo_telefono",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Actualiza estado a agendando_mascota",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extrae el numero": {
+      "main": [
+        [
+          {
+            "node": "Clasifica la intención8",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Clasifica la intención8": {
+      "main": [
+        [
+          {
+            "node": "Actualiza el numero",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Inicia agendamiento o muestra el error",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Actualiza el numero": {
+      "main": [
+        [
+          {
+            "node": "Actualiza estado a agendando_cita1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Actualiza estado a agendando_cita1": {
+      "main": [
+        [
+          {
+            "node": "Inicia agendamiento o muestra el error",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Actualiza estado a agendando_mascota": {
+      "main": [
+        [
+          {
+            "node": "Inicia el agendamiento",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Actualiza estado a pidiendo_telefono": {
+      "main": [
+        [
+          {
+            "node": "Solicita telefono",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Solicita telefono": {
+      "main": [
+        []
+      ]
+    },
+    "Inserta la cita": {
+      "main": [
+        [
+          {
+            "node": "Crea el evento",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "timeSavedMode": "fixed",
+    "timezone": "America/Lima",
+    "callerPolicy": "workflowsFromSameOwner",
+    "availableInMCP": false
+  },
+  "versionId": "ec1cbbd1-f836-4724-9209-7955bf3c1b8c",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "8263121982ce8cfbd143c24a003a1ccc074aa34e77c334902802127502cf9e24"
+  },
+  "id": "XScytGpNE9yNmf1o",
+  "tags": []
+}

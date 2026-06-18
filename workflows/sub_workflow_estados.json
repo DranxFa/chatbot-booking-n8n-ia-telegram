@@ -1,0 +1,220 @@
+{
+  "name": "Actualiza estado a menu",
+  "nodes": [
+    {
+      "parameters": {
+        "inputSource": "jsonExample",
+        "jsonExample": "{\n  \"telegram_id\": 123,\n  \"estado\": \"string\",\n  \"contexto_temporal\": \"string\"\n}"
+      },
+      "id": "c055762a-8fe7-4141-a639-df2372f30060",
+      "typeVersion": 1.1,
+      "name": "Ejecuta Sub-Workflow",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "position": [
+        160,
+        240
+      ],
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "UPDATE usuarios\nSET estado_conversacion = $1,\n    contexto_temporal = contexto_temporal || $2::jsonb,\n    updated_at = NOW()\nWHERE telegram_id = $3",
+        "options": {
+          "queryReplacement": "={{ $json.estado }},{{ $json.contexto_temporal }},{{ $json.telegram_id }}"
+        }
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        928,
+        480
+      ],
+      "id": "38222119-faed-40b5-ac13-91a5a37542d1",
+      "name": "Actualiza estado y contexto",
+      "alwaysOutputData": true,
+      "credentials": {
+        "postgres": {
+          "id": "5hM2Lgxfq15VCEli",
+          "name": "Supabase-Vet"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "UPDATE usuarios\nSET estado_conversacion = $1,\n    updated_at = NOW()\nWHERE telegram_id = $2;",
+        "options": {
+          "queryReplacement": "={{ $json.estado }},{{ $json.telegram_id }}"
+        }
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        720,
+        128
+      ],
+      "id": "f81222f5-600b-44be-9b2e-e5a104f8a106",
+      "name": "Actualiza estado",
+      "alwaysOutputData": true,
+      "credentials": {
+        "postgres": {
+          "id": "5hM2Lgxfq15VCEli",
+          "name": "Supabase-Vet"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "UPDATE usuarios\nSET estado_conversacion = $1,\n    contexto_temporal = '{}',\n    updated_at = NOW()\nWHERE telegram_id = $3",
+        "options": {
+          "queryReplacement": "={{ $json.estado }},{{ $json.contexto_temporal }},{{ $json.telegram_id }}"
+        }
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        928,
+        304
+      ],
+      "id": "9f68cf62-a4a7-4068-a106-d0fc15c885af",
+      "name": "Actualiza estado y contexto a vacio",
+      "alwaysOutputData": true,
+      "credentials": {
+        "postgres": {
+          "id": "5hM2Lgxfq15VCEli",
+          "name": "Supabase-Vet"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "c3ba034f-fe8e-4fe4-9871-a5ee43e78eea",
+              "leftValue": "={{ $json.contexto_temporal }}",
+              "rightValue": "={{ null }}",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        384,
+        240
+      ],
+      "id": "00b9bd8e-83e9-4009-b833-b9275f52e17f",
+      "name": "Contexto temporal es null?"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "a903af01-b813-4645-b5e0-7bcf68b0667b",
+              "leftValue": "={{ $json.contexto_temporal }}",
+              "rightValue": "={{'{}'}}",
+              "operator": {
+                "type": "string",
+                "operation": "contains"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        592,
+        320
+      ],
+      "id": "e7d5b111-08a5-4cca-abfa-38b48cbaffc7",
+      "name": "Requiere limpiar contexto?"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Ejecuta Sub-Workflow": {
+      "main": [
+        [
+          {
+            "node": "Contexto temporal es null?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Contexto temporal es null?": {
+      "main": [
+        [
+          {
+            "node": "Actualiza estado",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Requiere limpiar contexto?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Requiere limpiar contexto?": {
+      "main": [
+        [
+          {
+            "node": "Actualiza estado y contexto a vacio",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Actualiza estado y contexto",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false
+  },
+  "versionId": "7a88b320-ee21-4924-9bc5-2794f481ecd2",
+  "meta": {
+    "instanceId": "8263121982ce8cfbd143c24a003a1ccc074aa34e77c334902802127502cf9e24"
+  },
+  "id": "OWK0IXVf7QXczhbM",
+  "tags": []
+}

@@ -1,0 +1,109 @@
+{
+  "name": "Tiempo de inactividad",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "minutes",
+              "minutesInterval": 10
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.3,
+      "position": [
+        -1056,
+        80
+      ],
+      "id": "eac4396d-3e21-4d53-9a2a-2d518affed47",
+      "name": "Schedule Trigger"
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "UPDATE usuarios\nSET estado_conversacion = $1,\n    contexto_temporal = $2\nWHERE estado_conversacion != $3\n  AND updated_at < NOW() - INTERVAL $4\nRETURNING telegram_id;",
+        "options": {
+          "queryReplacement": "={{'menu'}},{{ '{}' }},{{ 'menu' }},{{ '2 minutes' }}"
+        }
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        -848,
+        80
+      ],
+      "id": "e9daff51-6e69-4dc2-8579-1571b717483b",
+      "name": "Busca citas para recordatorios",
+      "alwaysOutputData": true,
+      "credentials": {
+        "postgres": {
+          "id": "5hM2Lgxfq15VCEli",
+          "name": "Supabase-Vet"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $json.telegram_id }}",
+        "text": "=¡Hola! 🐾 \nNoté que te fuiste por un rato, así que cerré la sesión actual por inactividad. Cuando quieras retomar, solo escribe 'hola' para ver el menú principal.",
+        "additionalFields": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        -640,
+        80
+      ],
+      "id": "b81d1546-e2b8-447f-a8e3-999a96decb34",
+      "name": "Envia recordatorio",
+      "webhookId": "457117ea-46ab-465e-8672-3e44d01708c7",
+      "credentials": {
+        "telegramApi": {
+          "id": "zsP8syB6pnbLnxXc",
+          "name": "Bot-Vet - Telegram"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "Busca citas para recordatorios",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Busca citas para recordatorios": {
+      "main": [
+        [
+          {
+            "node": "Envia recordatorio",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "134670d9-128b-43ad-8a09-2bf2c0d0fe02",
+  "meta": {
+    "instanceId": "8263121982ce8cfbd143c24a003a1ccc074aa34e77c334902802127502cf9e24"
+  },
+  "id": "kBiO2H0uZdlFDzrS",
+  "tags": []
+}
